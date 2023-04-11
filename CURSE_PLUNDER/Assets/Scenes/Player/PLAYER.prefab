@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2496614506760884512}
   - component: {fileID: 619983779347473703}
   m_Layer: 5
-  m_Name: '`Player_Prefab'
+  m_Name: PLAYER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.329285, y: 44.023438}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4682374533483425580
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bffaea687ed9e458d8f38e58c35365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  CV: {fileID: 0}
   MOVE_SPEED: 240
 --- !u!50 &619983779347473703
 Rigidbody2D:

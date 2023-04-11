@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+
+#pragma warning disable CS0618
 
 public class PlayerControl : MonoBehaviour
 {
 	Animator animator;		//主人公の歩行アニメを扱うアニメーター
 	Rigidbody2D PlayerRB;   //主人公の移動で使用するリジッドボディ
-	
-	[SerializeField]Camera camera;          //主人公を追従するカメラ
-	Vector2 camerapos;		//カメラ座標を入れておく
 
 	//最後の入力された方向を覚えておくためベクター
 	Vector2 lastmove = new Vector2(0,0);
@@ -22,8 +22,7 @@ public class PlayerControl : MonoBehaviour
 		this.animator = GetComponent<Animator>();
 		//リジッドボディの関連付け
 		this.PlayerRB = GetComponent<Rigidbody2D>();
-		//カメラの座標を取得しておく
-		camerapos = camera.transform.position;
+
 	}
 
 	// Update is called once per frame
@@ -45,12 +44,8 @@ public class PlayerControl : MonoBehaviour
 
 			//主人公の移動処理と最後の入力を覚えておく
 			PlayerRB.velocity = moveact.normalized * MOVE_SPEED;
-			lastmove = moveact;
-
-			//カメラも一緒に動く
-			camerapos = camerapos + (moveact.normalized * MOVE_SPEED);
-			this.camera.transform.position = camerapos;
 			
+			lastmove = moveact;
 		}
 		else
 		{
@@ -60,7 +55,6 @@ public class PlayerControl : MonoBehaviour
 			this.animator.SetBool("Walk", false);
 			PlayerRB.velocity = Vector2.zero;
 		}
-
 
 
 	}
