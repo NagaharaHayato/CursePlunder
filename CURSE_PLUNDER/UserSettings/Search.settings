@@ -10,6 +10,11 @@ scopes = {
 	"last_search.D379D912" = "PlayerPref"
 	"OpenInspectorPreview.D379D912" = "0"
 	"currentGroup.D379D912" = "all"
+	"picker_window_position_offset.768FEAAC" = "189;197;320;550"
+	"picker_search_text.768FEAAC" = ""
+	"last_search.768FEAAC" = ""
+	"OpenInspectorPreview.768FEAAC" = "0"
+	"currentGroup.768FEAAC" = "all"
 }
 providers = {
 	adb = {
