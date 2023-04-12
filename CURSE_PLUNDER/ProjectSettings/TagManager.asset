@@ -7,6 +7,7 @@ TagManager:
   - kabe
   - Home
   - Ground
+  - human
   layers:
   - Default
   - TransparentFX
