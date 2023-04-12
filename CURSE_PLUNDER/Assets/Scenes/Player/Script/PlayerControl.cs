@@ -7,7 +7,11 @@ using Cinemachine;
 
 public class PlayerControl : MonoBehaviour
 {
-	Animator animator;		//主人公の歩行アニメを扱うアニメーター
+	[SerializeField]
+	Vector2 moveact;
+
+
+    Animator animator;		//主人公の歩行アニメを扱うアニメーター
 	Rigidbody2D PlayerRB;   //主人公の移動で使用するリジッドボディ
 
 	//最後の入力された方向を覚えておくためベクター
@@ -29,7 +33,7 @@ public class PlayerControl : MonoBehaviour
 	void Update()
 	{
 		//方向キーの入力状態を取得
-		Vector2 moveact = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		moveact = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 		
 		//方向キーが入力されていた場合
 		if (moveact != Vector2.zero)
@@ -55,7 +59,10 @@ public class PlayerControl : MonoBehaviour
 			this.animator.SetBool("Walk", false);
 			PlayerRB.velocity = Vector2.zero;
 		}
-
-
 	}
+
+    void LateUpdate()
+    {
+        lastmove = moveact;
+    }
 }
