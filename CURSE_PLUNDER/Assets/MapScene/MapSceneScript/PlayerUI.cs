@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -10,21 +11,23 @@ public class PlayerUI : MonoBehaviour
     public GameObject WindowObject;
     //メッセージウィンドウは非表示
     bool Wenabled = false;
-    
+
     private void FixedUpdate()
     {
         //触れた場合にウィンドウをセット
         WindowObject.SetActive(Wenabled);
+
     }
-    // Start is called before the first frame update
-    //ぶつかった場合
-    private void OnTriggerEnter2D(Collider2D collision)
+// Start is called before the first frame update
+//ぶつかった場合
+private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             ///表示
             Wenabled = true;
         }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
