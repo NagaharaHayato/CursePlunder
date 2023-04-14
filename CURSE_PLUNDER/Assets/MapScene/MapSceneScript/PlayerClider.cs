@@ -27,6 +27,12 @@ public class PlayerClider : MonoBehaviour
 
 
         }
+        if (collision.gameObject.CompareTag("Cave"))
+        {
+            SceneManager.LoadScene("CaveScene");
+
+
+        }
 
     }
 }
