@@ -622,11 +622,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!224 &214591558 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5471975900007043541, guid: de189fc8b5e291145aa78e736a19b08c, type: 3}
-  m_PrefabInstance: {fileID: 534958900}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &245934915
 GameObject:
   m_ObjectHideFlags: 0
@@ -22809,7 +22804,7 @@ RectTransform:
   m_Children:
   - {fileID: 270446567}
   - {fileID: 1248671313}
-  - {fileID: 214591558}
+  - {fileID: 1178729761}
   - {fileID: 95973558}
   m_Father: {fileID: 40006396}
   m_RootOrder: -1
@@ -23165,6 +23160,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!224 &1178729761 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2009323695740973022, guid: de189fc8b5e291145aa78e736a19b08c, type: 3}
+  m_PrefabInstance: {fileID: 534958900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248671312
 GameObject:
   m_ObjectHideFlags: 0
@@ -23897,8 +23897,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bffaea687ed9e458d8f38e58c35365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveact: {x: 0, y: 0}
+  SwordObj: {fileID: 0}
   MOVE_SPEED: 60
+  radview: {fileID: 0}
 --- !u!95 &1697002169
 Animator:
   serializedVersion: 5
