@@ -21,6 +21,12 @@ public class PlayerClider : MonoBehaviour
 
 
         }
+        if (collision.gameObject.CompareTag("BattleGo"))
+        {
+            SceneManager.LoadScene("MapScene2");
+
+
+        }
 
     }
 }

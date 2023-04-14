@@ -9,6 +9,8 @@ TagManager:
   - Ground
   - human
   - Out
+  - BattleGo
+  - City
   layers:
   - Default
   - TransparentFX

@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MapScene/HomeScene.unity
     guid: c43d10b4d0029bc40be9fbb2303bd83b
+  - enabled: 1
+    path: Assets/Scenes/BattleScene.unity
+    guid: 4ca83fee85f177f4391c0e3304eb9649
+  - enabled: 1
+    path: Assets/MapScene/MapScene2.unity
+    guid: 1224234b24d18c342be0465aa2b328d1
   m_configObjects: {}
