@@ -18,7 +18,7 @@ public class ExpOrb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerObj = GameObject.Find("Player");
+        PlayerObj = GameObject.Find("ItemGetter");
         OrbRB = this.gameObject.GetComponent<Rigidbody2D>();
         
     }
@@ -34,7 +34,7 @@ public class ExpOrb : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("ItemGetter"))
         {
             Destroy(this.gameObject);
         }
