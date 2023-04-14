@@ -19,8 +19,10 @@ public class PlayerControl : MonoBehaviour
 
 	[SerializeField] private float MOVE_SPEED = 60.0f;   //主人公の移動速度
 	public static float PLAYER_DIR_RAD = 90.0f;    //主人公の向き
+	float radian;
+    [SerializeField] TextMeshProUGUI radview;
 
-	[SerializeField] TextMeshProUGUI radview;
+	
 	void Start()
 	{
 		//アニメーターの関連付け
@@ -28,7 +30,7 @@ public class PlayerControl : MonoBehaviour
 		//リジッドボディの関連付け
 		this.PlayerRB = GetComponent<Rigidbody2D>();
 
-		float radian = -PLAYER_DIR_RAD * (Mathf.PI / 180);
+		radian = -PLAYER_DIR_RAD * (Mathf.PI / 180);
 		DirectionChange(new Vector2(Mathf.Cos(radian), Mathf.Sin(radian)).normalized);
 	}
 
@@ -73,7 +75,9 @@ public class PlayerControl : MonoBehaviour
 		//剣を投げる
 		if (Input.GetKeyDown(KeyCode.F))
 		{
-			Instantiate(SwordObj, transform.position,Quaternion.identity);
+			
+			float rad_angle = PLAYER_DIR_RAD * Mathf.Deg2Rad;
+			Instantiate(SwordObj,transform.position,Quaternion.identity);
 		}
 
 		radview.text = PLAYER_DIR_RAD.ToString();

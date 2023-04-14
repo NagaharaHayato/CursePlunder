@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Slime_Act : MonoBehaviour
 {
-    [SerializeField] GameObject TargetObj;
     [SerializeField] GameObject HPBar;
+    GameObject TargetObj;
 
     Vector2 TargetPos;  //追跡するターゲットの座標が入る
     Vector2 SlimePos;   //自分自身の座標
@@ -25,6 +25,8 @@ public class Slime_Act : MonoBehaviour
         SlimeAnim = GetComponent<Animator>();
         SlimeRB = GetComponent<Rigidbody2D>();
         Slime_MaxHP = Slime_HP;
+
+        TargetObj = GameObject.Find("Player");
     }
 
     // Update is called once per frame
