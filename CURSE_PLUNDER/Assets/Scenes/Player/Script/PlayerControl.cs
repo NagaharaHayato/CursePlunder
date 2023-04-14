@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
 	//最後の入力された方向を覚えておくためベクター
 	Vector2 lastmove = new Vector2(0,0);
 	Vector2 moveact;
-
+	Vector2 offset;
 	[SerializeField] GameObject SwordObj;
 
 	[SerializeField] private float MOVE_SPEED = 60.0f;   //主人公の移動速度
@@ -75,8 +75,9 @@ public class PlayerControl : MonoBehaviour
 		//剣を投げる
 		if (Input.GetKeyDown(KeyCode.F))
 		{
+
+			float radA = PLAYER_DIR_RAD * Mathf.Rad2Deg;
 			
-			float rad_angle = PLAYER_DIR_RAD * Mathf.Deg2Rad;
 			Instantiate(SwordObj,transform.position,Quaternion.identity);
 		}
 

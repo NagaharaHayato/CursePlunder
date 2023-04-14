@@ -28,14 +28,15 @@ public class PlayerSwordThrow : MonoBehaviour
         SwordRB.velocity = new Vector2(Mathf.Cos(rad) * MOVE_SPEED, -Mathf.Sin(rad) * MOVE_SPEED);
 
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy")){
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
             Destroy(this.gameObject);
-		}
-        
-        if (collision.gameObject.CompareTag("Wall")){
+        }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
             Destroy(this.gameObject);
         }
     }

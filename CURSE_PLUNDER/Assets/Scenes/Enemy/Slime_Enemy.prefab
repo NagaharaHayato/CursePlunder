@@ -204,8 +204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792e99731a5ce6e43afb131255b37b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObj: {fileID: 0}
   HPBar: {fileID: 38318301171840709}
+  ExpOrb_Obj: {fileID: 761216886393317385, guid: 9da7f276da6d230499f3f12a9183e102, type: 3}
   Slime_HP: 10
   HP_per: 0
 --- !u!50 &2991000037938339470

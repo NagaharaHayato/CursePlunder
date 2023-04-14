@@ -5,12 +5,14 @@ using UnityEngine;
 public class Slime_Act : MonoBehaviour
 {
     [SerializeField] GameObject HPBar;
+    [SerializeField] GameObject ExpOrb_Obj;
     GameObject TargetObj;
+    
 
     Vector2 TargetPos;  //追跡するターゲットの座標が入る
     Vector2 SlimePos;   //自分自身の座標
 
-    private float   MOVE_SPEED  = 10.5f;    //移動速度
+    private float   MOVE_SPEED  = 15.5f;    //移動速度
     private int     direction   = 0;  //アニメーターに向いている方向を教える為の変数
     [SerializeField] private int     Slime_HP    = 10;  //この敵のHP
     private int     Slime_MaxHP;
@@ -27,6 +29,7 @@ public class Slime_Act : MonoBehaviour
         Slime_MaxHP = Slime_HP;
 
         TargetObj = GameObject.Find("Player");
+        //ExpOrb_Obj = GameObject.Find("ExpOrbObj");
     }
 
     // Update is called once per frame
@@ -50,9 +53,9 @@ public class Slime_Act : MonoBehaviour
 
         //追跡するオブジェクトがいる方向へ向く
         direction = 1;
-        if (rad>=337.5 || (rad >= 0.0f && rad <= 22.5f)){
+        if (rad >= 337.5 || (rad >= 0.0f && rad <= 22.5f)) {
 
-        }else{
+        } else {
             for (float r = 22.5f; r <= 315.0f; r += 45.0f)
             {
                 direction++;
@@ -63,16 +66,20 @@ public class Slime_Act : MonoBehaviour
         SlimeAnim.SetFloat("Direction", (float)direction);
 
         //ターゲットのオブジェクトを追いかけるように移動
-        SlimeRB.velocity = new Vector2((Mathf.Cos(rad) * MOVE_SPEED), -(Mathf.Sin(rad) * MOVE_SPEED));
+        transform.position = Vector2.MoveTowards(transform.position, TargetPos, MOVE_SPEED * Time.deltaTime );
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Sword"))
         {
             Slime_HP--;
-            if (Slime_HP <= 0) Destroy(this.gameObject);
+            if (Slime_HP <= 0)
+            {
+                Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
