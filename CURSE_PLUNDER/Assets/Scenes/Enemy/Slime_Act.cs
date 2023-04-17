@@ -12,11 +12,12 @@ public class Slime_Act : MonoBehaviour
     Vector2 TargetPos;  //追跡するターゲットの座標が入る
     Vector2 SlimePos;   //自分自身の座標
 
-    private float   MOVE_SPEED  = 15.5f;    //移動速度
-    private int     direction   = 0;  //アニメーターに向いている方向を教える為の変数
+    private float   MOVE_SPEED  = 15.5f;                 //移動速度
+    private int     direction   = 0;                    //アニメーターに向いている方向を教える為の変数
     [SerializeField] private int     Slime_HP    = 10;  //この敵のHP
-    private int     Slime_MaxHP;
-    private float   rad;
+    RectTransform HPBarRect;                            //HPバーのRectTransform
+    private int     Slime_MaxHP;                        //この敵の最大体力（Slime_HPで設定された値が最大体力になる）
+    private float   rad;                                //角度
 
     Rigidbody2D SlimeRB;  //この敵のリジッドボディ
     Animator SlimeAnim; //この敵のアニメーター
@@ -29,7 +30,8 @@ public class Slime_Act : MonoBehaviour
         Slime_MaxHP = Slime_HP;
 
         TargetObj = GameObject.Find("Player");
-        //ExpOrb_Obj = GameObject.Find("ExpOrbObj");
+
+        HPBarRect = HPBar.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -37,8 +39,7 @@ public class Slime_Act : MonoBehaviour
     {
         //HPバーの更新
         HP_per = (float)Slime_HP / (float)Slime_MaxHP;
-        HPBar.GetComponent<RectTransform>().sizeDelta = new Vector2(0.4f * HP_per, 0.04585f);
-
+        HPBar.GetComponent<RectTransform>().anchorMax = new Vector2(-0.5f+(0.5f * HP_per)*2, HPBarRect.anchorMax.y);
 
         //追跡するオブジェクトの座標情報を更新
         TargetPos = TargetObj.GetComponent<Transform>().position;

@@ -29,6 +29,7 @@ public class ExpOrb : MonoBehaviour
         PlayerPos = PlayerObj.GetComponent<Transform>().position;
 
         transform.position = Vector2.MoveTowards(transform.position, PlayerPos, MOVE_SPEED * Time.deltaTime);
+        MOVE_SPEED += 0.5f;
 
     }
 
