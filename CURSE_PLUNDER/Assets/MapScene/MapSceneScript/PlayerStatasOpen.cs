@@ -10,11 +10,14 @@ public class PlayerStatasOpen : MonoBehaviour
     /// </summary>
     public GameObject WindowObject;
     public GameObject WindowObject2;
+    public GameObject WindowObject3;
     //オープン用メッセージウィンドウは表示扱い
     bool Wenabled = true;
     
     //ステータスウィンドウは非表示扱い
     bool Wenabled2 = false;
+
+    //bool Wenabled3 = false;
 
 
     private void FixedUpdate()
@@ -24,6 +27,9 @@ public class PlayerStatasOpen : MonoBehaviour
         //ウィンドウ2をセット
         WindowObject2.SetActive(Wenabled2);
 
+        //ウィンドウ2をセット
+        //WindowObject3.SetActive(Wenabled3);
+
     }
     private void Update()
     {
@@ -32,12 +38,14 @@ public class PlayerStatasOpen : MonoBehaviour
         {
             Wenabled = false;
             Wenabled2 = true;
+           // Wenabled3 = true;
         }
         //閉じる
         if(Input.GetKeyDown(KeyCode.D))
         {
             Wenabled = true;
             Wenabled2 = false;
+           
         }
 
 
