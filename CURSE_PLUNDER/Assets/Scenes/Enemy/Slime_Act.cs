@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Slime_Act : MonoBehaviour
 {
     [SerializeField] GameObject HPBar;
     [SerializeField] GameObject ExpOrb_Obj;
+    [SerializeField] GameObject DamageView;
     GameObject TargetObj;
+    GameObject UIcanvas;
     
 
     Vector2 TargetPos;  //追跡するターゲットの座標が入る
@@ -30,7 +33,7 @@ public class Slime_Act : MonoBehaviour
         Slime_MaxHP = Slime_HP;
 
         TargetObj = GameObject.Find("Player");
-
+        UIcanvas = GameObject.Find("UI");
         HPBarRect = HPBar.GetComponent<RectTransform>();
     }
 
@@ -76,6 +79,10 @@ public class Slime_Act : MonoBehaviour
         if (collision.gameObject.CompareTag("Sword"))
         {
             Slime_HP--;
+            GameObject _damageView = Instantiate(DamageView,this.transform.position, Quaternion.identity);
+            _damageView.transform.SetParent(UIcanvas.transform,false);
+            _damageView.GetComponent<TextMeshProUGUI>().text = "1";
+
             if (Slime_HP <= 0)
             {
                 Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);

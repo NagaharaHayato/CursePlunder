@@ -74,11 +74,8 @@ public class PlayerControl : MonoBehaviour
 		//剣を投げる
 		if (Input.GetKeyDown(KeyCode.F))
 		{
-			//角度からラジアンに変換
-			float radA = PLAYER_DIR_RAD * Mathf.Rad2Deg;
-			
 			//剣のオブジェクトを生成し、主人公が向いている方向へ飛ばす（剣の移動処理は別のスクリプトで実装済み）
-			Instantiate(SwordObj,transform.position,Quaternion.identity);
+			Instantiate(SwordObj,transform.position,Quaternion.Euler(0,0,-PLAYER_DIR_RAD+90));
 		}
 	}
 

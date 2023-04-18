@@ -19,7 +19,7 @@ public class PlayerSwordThrow : MonoBehaviour
 
 
         rad = PlayerControl.PLAYER_DIR_RAD * Mathf.Deg2Rad;
-        transform.rotation = new Quaternion(0, 0,-PlayerControl.PLAYER_DIR_RAD, 0);
+        //transform.rotation = new Quaternion(0, 0,PlayerControl.PLAYER_DIR_RAD, 0);
     }
 
     // Update is called once per frame

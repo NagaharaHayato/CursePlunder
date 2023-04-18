@@ -37,6 +37,7 @@ public class ExpOrb : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ItemGetter"))
         {
+            UIManage.GotExp++;
             Destroy(this.gameObject);
         }
     }
