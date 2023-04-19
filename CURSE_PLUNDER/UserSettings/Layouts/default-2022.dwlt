@@ -215,8 +215,8 @@ MonoBehaviour:
     y: 0
     width: 1007
     height: 561
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 15}
@@ -681,9 +681,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 52.980797, y: 27.23961, z: 1.1693982}
+    m_Target: {x: 838.61316, y: 530.7436, z: 1.64824}
     speed: 2
-    m_Value: {x: 52.980797, y: 27.23961, z: 1.1693982}
+    m_Value: {x: 838.61316, y: 530.7436, z: 1.64824}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -733,9 +733,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 132.94705
+    m_Target: 440.4617
     speed: 2
-    m_Value: 132.94705
+    m_Value: 440.4617
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -799,7 +799,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b67effff6681ffffb281fffff881ffff0088ffffb489fffffa89ffff768cffffba8cffff5e8fffffa48fffffee8fffff3490ffff8690ffff80deffffcadeffffa8e0ffffc8f3ffffd8f7ffff20f8ffff66f8ffffaef8fffff4f8ffff3cf9fffffefaffff426b0000166d00005e6d0000706d00002e780000a67800005ab9000060bf0000
+      m_ExpandedIDs: 0a11ffff1812ffff3212ffff4612ffff9818ffffb218ffffc618ffffd83fffff645fffff666bffff7a87ffff7c87ffff7e87ffff568bffffa68bffff5897ffff6299ffffa899fffff099ffff7a9affffdaa5ffff8ea7ffffd6a7ffff1ca8ffff64a8ffffaca8ffff02a9ffff82adffffcaadffff10aeffff9eaeffffe6aeffff2aafffff74afffffc0afffffd6c1ffff52c2ffff66c3ffff0ac6ffff68c6ffffc8c9ffff20caffffe2daffff34dbffffc8dcffff32deffff7edeffffe0e0ffffd0e2ffff18e3ffffece3ffff42e5ffff4ce6ffffd6e9ffff1eeaffff66eaffffb0eaffff02ebffff58f6fffffefaffff40650000706e0000a26e0000dc6e00008a7200006a7500001a76000042780000487a0000da7a0000f27a000082820000dc82000074850000fc850000668c0000c68c0000668d000042b20000cad50000b4d60000e6d600005cd7000092fa000036fb000058fb0000c20c0100180d0100200d0100620d0100740d01009c0d0100c40d0100363401003e3401005e340100b2340100163501001e3501003c3501006a350100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1085,34 +1085,34 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/MapScene
+    - Assets/MapScene/MapSceneScript
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/MapScene
+  - Assets/MapScene/MapSceneScript
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\GA4\Documents\GitHub\CursePlunder\CURSE_PLUNDER
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ac630000
-    m_LastClickedID: 25516
-    m_ExpandedIDs: 00000000aa630000ac630000ae630000b0630000b2630000b4630000b6630000b863000000ca9a3b
+    m_SelectedIDs: c4630000
+    m_LastClickedID: 25540
+    m_ExpandedIDs: 00000000aa630000ac630000ae630000b0630000b2630000b4630000b6630000b8630000c6630000d863000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: All Prefabs
-      m_OriginalName: All Prefabs
+      m_Name: Enemy
+      m_OriginalName: Enemy
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 1000000004
+      m_UserData: 25822
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -1160,18 +1160,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300003663000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: SimpleInventory
+      m_OriginalName: SimpleInventory
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 81684
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 4
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
