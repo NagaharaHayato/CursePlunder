@@ -16,7 +16,7 @@ public class PlayerControl : MonoBehaviour
 	Vector2 moveact;									//移動ベクトル
 	[SerializeField] GameObject SwordObj;				//剣のオブジェクト
 
-	[SerializeField] private float MOVE_SPEED = 60.0f;  //主人公の移動速度
+	[SerializeField] private float MOVE_SPEED = 6.0f;  //主人公の移動速度
 	public static float PLAYER_DIR_RAD = 90.0f;			//主人公の向き
 
 	
@@ -34,11 +34,17 @@ public class PlayerControl : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		
+
 
 		//方向キーの入力状態を取得
-		moveact = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-		
+		if (UIManage.ControlMode == 0)
+		{
+			moveact = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		}
+		else
+		{
+			moveact = Vector2.zero;
+		}
 		//方向キーが入力されていた場合
 		if (moveact != Vector2.zero)
 		{

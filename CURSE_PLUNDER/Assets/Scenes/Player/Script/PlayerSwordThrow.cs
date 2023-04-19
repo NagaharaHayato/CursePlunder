@@ -19,13 +19,13 @@ public class PlayerSwordThrow : MonoBehaviour
 
 
         rad = PlayerControl.PLAYER_DIR_RAD * Mathf.Deg2Rad;
-        //transform.rotation = new Quaternion(0, 0,PlayerControl.PLAYER_DIR_RAD, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        SwordRB.velocity = new Vector2(Mathf.Cos(rad) * MOVE_SPEED, -Mathf.Sin(rad) * MOVE_SPEED);
+        
+        SwordRB.velocity = new Vector2((Mathf.Cos(rad) * MOVE_SPEED)*UIManage.SpeedAdjust, (-Mathf.Sin(rad) * MOVE_SPEED) * UIManage.SpeedAdjust);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
