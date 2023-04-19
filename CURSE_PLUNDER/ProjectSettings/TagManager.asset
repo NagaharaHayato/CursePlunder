@@ -4,10 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Sword
-  - Enemy
-  - Wall
-  - ItemGetter
+  - kabe
+  - Home
+  - Ground
+  - human
+  - Out
+  - BattleGo
+  - Cave
   layers:
   - Default
   - TransparentFX
