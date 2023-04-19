@@ -12,15 +12,12 @@ public class PlayerControl : MonoBehaviour
 	Rigidbody2D PlayerRB;   //主人公の移動で使用するリジッドボディ
 
 	//最後の入力された方向を覚えておくためベクター
-	Vector2 lastmove = new Vector2(0,0);
-	Vector2 moveact;
+	Vector2 lastmove = new Vector2(0,0);				//入力された方向を保存する用
+	Vector2 moveact;									//移動ベクトル
+	[SerializeField] GameObject SwordObj;				//剣のオブジェクト
 
-	[SerializeField] GameObject SwordObj;
-
-	[SerializeField] private float MOVE_SPEED = 60.0f;   //主人公の移動速度
-	public static float PLAYER_DIR_RAD = 90.0f;    //主人公の向き
-	float radian;
-    [SerializeField] TextMeshProUGUI radview;
+	[SerializeField] private float MOVE_SPEED = 60.0f;  //主人公の移動速度
+	public static float PLAYER_DIR_RAD = 90.0f;			//主人公の向き
 
 	
 	void Start()
@@ -30,7 +27,7 @@ public class PlayerControl : MonoBehaviour
 		//リジッドボディの関連付け
 		this.PlayerRB = GetComponent<Rigidbody2D>();
 
-		radian = -PLAYER_DIR_RAD * (Mathf.PI / 180);
+		float radian = -PLAYER_DIR_RAD * (Mathf.PI / 180);
 		DirectionChange(new Vector2(Mathf.Cos(radian), Mathf.Sin(radian)).normalized);
 	}
 
@@ -55,8 +52,10 @@ public class PlayerControl : MonoBehaviour
 			//主人公の移動処理と最後の入力を覚えておく
 			PlayerRB.velocity = moveact.normalized * MOVE_SPEED;
 			
+			//最後に入力された方向を一度保存
 			lastmove = moveact;
 
+			//角度をラジアンに変換
 			PLAYER_DIR_RAD = (Mathf.Atan2(lastmove.y, lastmove.x) * Mathf.Rad2Deg);
 
 			//角度を「-180～180度」から「0～360度」に変換
@@ -75,16 +74,14 @@ public class PlayerControl : MonoBehaviour
 		//剣を投げる
 		if (Input.GetKeyDown(KeyCode.F))
 		{
-			
-			float rad_angle = PLAYER_DIR_RAD * Mathf.Deg2Rad;
-			Instantiate(SwordObj,transform.position,Quaternion.identity);
+			//剣のオブジェクトを生成し、主人公が向いている方向へ飛ばす（剣の移動処理は別のスクリプトで実装済み）
+			Instantiate(SwordObj,transform.position,Quaternion.Euler(0,0,-PLAYER_DIR_RAD+90));
 		}
-
-		radview.text = PLAYER_DIR_RAD.ToString();
 	}
 
 	private void DirectionChange(Vector2 vec)
 	{
+		//アニメーターにベクトルの値をセット（ベクトルの値に応じて画像が切り替わる）
 		this.animator.SetFloat("VectorX", vec.x);
 		this.animator.SetFloat("VectorY", vec.y);
 		return;

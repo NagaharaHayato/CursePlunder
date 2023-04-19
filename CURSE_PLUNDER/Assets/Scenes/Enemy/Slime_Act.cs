@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Slime_Act : MonoBehaviour
 {
     [SerializeField] GameObject HPBar;
+    [SerializeField] GameObject ExpOrb_Obj;
+    [SerializeField] GameObject DamageView;
     GameObject TargetObj;
+    GameObject UIcanvas;
+    
 
     Vector2 TargetPos;  //追跡するターゲットの座標が入る
     Vector2 SlimePos;   //自分自身の座標
 
-    private float   MOVE_SPEED  = 10.5f;    //移動速度
-    private int     direction   = 0;  //アニメーターに向いている方向を教える為の変数
+    private float   MOVE_SPEED  = 15.5f;                 //移動速度
+    private int     direction   = 0;                    //アニメーターに向いている方向を教える為の変数
     [SerializeField] private int     Slime_HP    = 10;  //この敵のHP
-    private int     Slime_MaxHP;
-    private float   rad;
+    RectTransform HPBarRect;                            //HPバーのRectTransform
+    private int     Slime_MaxHP;                        //この敵の最大体力（Slime_HPで設定された値が最大体力になる）
+    private float   rad;                                //角度
 
     Rigidbody2D SlimeRB;  //この敵のリジッドボディ
     Animator SlimeAnim; //この敵のアニメーター
@@ -27,6 +33,8 @@ public class Slime_Act : MonoBehaviour
         Slime_MaxHP = Slime_HP;
 
         TargetObj = GameObject.Find("Player");
+        UIcanvas = GameObject.Find("UI");
+        HPBarRect = HPBar.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -34,8 +42,7 @@ public class Slime_Act : MonoBehaviour
     {
         //HPバーの更新
         HP_per = (float)Slime_HP / (float)Slime_MaxHP;
-        HPBar.GetComponent<RectTransform>().sizeDelta = new Vector2(0.4f * HP_per, 0.04585f);
-
+        HPBar.GetComponent<RectTransform>().anchorMax = new Vector2(-0.5f+(0.5f * HP_per)*2, HPBarRect.anchorMax.y);
 
         //追跡するオブジェクトの座標情報を更新
         TargetPos = TargetObj.GetComponent<Transform>().position;
@@ -50,9 +57,9 @@ public class Slime_Act : MonoBehaviour
 
         //追跡するオブジェクトがいる方向へ向く
         direction = 1;
-        if (rad>=337.5 || (rad >= 0.0f && rad <= 22.5f)){
+        if (rad >= 337.5 || (rad >= 0.0f && rad <= 22.5f)) {
 
-        }else{
+        } else {
             for (float r = 22.5f; r <= 315.0f; r += 45.0f)
             {
                 direction++;
@@ -63,16 +70,24 @@ public class Slime_Act : MonoBehaviour
         SlimeAnim.SetFloat("Direction", (float)direction);
 
         //ターゲットのオブジェクトを追いかけるように移動
-        SlimeRB.velocity = new Vector2((Mathf.Cos(rad) * MOVE_SPEED), -(Mathf.Sin(rad) * MOVE_SPEED));
+        transform.position = Vector2.MoveTowards(transform.position, TargetPos, MOVE_SPEED * Time.deltaTime );
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Sword"))
         {
             Slime_HP--;
-            if (Slime_HP <= 0) Destroy(this.gameObject);
+            GameObject _damageView = Instantiate(DamageView,this.transform.position, Quaternion.identity);
+            _damageView.transform.SetParent(UIcanvas.transform,false);
+            _damageView.GetComponent<TextMeshProUGUI>().text = "1";
+
+            if (Slime_HP <= 0)
+            {
+                Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
+            }
         }
     }
 }

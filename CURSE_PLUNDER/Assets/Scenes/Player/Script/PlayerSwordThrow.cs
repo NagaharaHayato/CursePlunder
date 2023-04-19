@@ -19,7 +19,7 @@ public class PlayerSwordThrow : MonoBehaviour
 
 
         rad = PlayerControl.PLAYER_DIR_RAD * Mathf.Deg2Rad;
-        transform.rotation = new Quaternion(0, 0,-PlayerControl.PLAYER_DIR_RAD, 0);
+        //transform.rotation = new Quaternion(0, 0,PlayerControl.PLAYER_DIR_RAD, 0);
     }
 
     // Update is called once per frame
@@ -28,14 +28,15 @@ public class PlayerSwordThrow : MonoBehaviour
         SwordRB.velocity = new Vector2(Mathf.Cos(rad) * MOVE_SPEED, -Mathf.Sin(rad) * MOVE_SPEED);
 
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy")){
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
             Destroy(this.gameObject);
-		}
-        
-        if (collision.gameObject.CompareTag("Wall")){
+        }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
             Destroy(this.gameObject);
         }
     }
