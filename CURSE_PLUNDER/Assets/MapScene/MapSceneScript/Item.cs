@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [SerializeField]
 [CreateAssetMenu(fileName ="Item",menuName ="CreateItem")]
-
 public class Item : ScriptableObject
 {
-    public enum KindOfItem
+   public enum KindOfItem
     {
-        weapon,
+        Weapon,
         UseItem
     }
 
@@ -33,10 +33,12 @@ public class Item : ScriptableObject
     {
         return kindOfItem;
     }
+
     public Sprite GetIcon()
     {
         return icon;
     }
+
     public string GetItemName()
     {
         return itemName;
@@ -45,5 +47,4 @@ public class Item : ScriptableObject
     {
         return information;
     }
-
 }
