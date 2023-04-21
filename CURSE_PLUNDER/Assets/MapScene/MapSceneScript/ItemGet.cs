@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class ItemGet : MonoBehaviour
+[Serializable]
+public class ItemGet
 {
-    // Start is called before the first frame update
-    void Start()
+    //アイテム取得可能
+    [SerializeField] string itemName;
+    GameObject gameObject;
+
+    internal void Itemer(GameObject item)
     {
-        
+        gameObject = item;
+        //inventory.GetInstance().Itemer(this);
+    }
+    
+    internal string GetItemName()
+    {
+        return itemName;
     }
 
-    // Update is called once per frame
-    void Update()
+    internal GameObject GetGameObject()
     {
-        
+        return gameObject;
     }
+
+    
 }
