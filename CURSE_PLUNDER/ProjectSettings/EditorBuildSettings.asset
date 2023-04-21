@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Title/Title.unity
+    guid: 07567aa5b758b8247a11fbaa1c64b5b7
+  - enabled: 1
     path: Assets/MapScene/MapScene.unity
     guid: ca1e93096d7bbf0458c13a8f34d9fca4
   - enabled: 1
