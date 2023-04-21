@@ -75,6 +75,7 @@ public class Slime_Act : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, TargetPos, (MOVE_SPEED * Time.deltaTime)*UIManage.SpeedAdjust );
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
+        SlimeAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

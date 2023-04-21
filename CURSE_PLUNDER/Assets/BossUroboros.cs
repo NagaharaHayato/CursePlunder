@@ -7,11 +7,13 @@ using UnityEngine;
 public class BossUroboros : MonoBehaviour
 {
     [SerializeField]GameObject BossHPbar;
+    [SerializeField] GameObject ExpOrb_Obj;
     [SerializeField] GameObject DamageView;
     GameObject TargetObj;
     GameObject UIcanvas;
-    
-    public static int BossHP = 1000;
+    Animator BossAnim;
+    [SerializeField] public int BossHP = 1000;
+    [SerializeField] float HP_per;
     int BossMaxHP;
     
 
@@ -19,14 +21,18 @@ public class BossUroboros : MonoBehaviour
     {
         TargetObj = GameObject.Find("Player");
         UIcanvas = GameObject.Find("UI");
+        BossAnim = GetComponent<Animator>();
+
         BossMaxHP = BossHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float HP_per = (float)BossHP / (float)BossMaxHP;
-        BossHPbar.GetComponent<RectTransform>().anchorMax = new Vector2(-610.0f + (310.0f * HP_per) * 2, BossHPbar.GetComponent<RectTransform>().anchorMax.y);
+        HP_per = (float)BossHP / (float)BossMaxHP;
+        BossHPbar.GetComponent<RectTransform>().anchorMax = new Vector2((0.5f * HP_per), BossHPbar.GetComponent<RectTransform>().anchorMax.y);
+
+        BossAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,6 +44,12 @@ public class BossUroboros : MonoBehaviour
             _damageView.transform.SetParent(UIcanvas.transform, false);
             //_damageView.transform.position = transform.position;
             _damageView.GetComponent<TextMeshProUGUI>().text = "1";
+
+            if (BossHP <= 0)
+            {
+                Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
+            }
         }
     }
 }

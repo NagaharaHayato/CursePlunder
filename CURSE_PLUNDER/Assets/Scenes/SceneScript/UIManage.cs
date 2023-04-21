@@ -12,13 +12,19 @@ public class UIManage : MonoBehaviour
 
     [SerializeField] GameObject CmdSelectUI;
     [SerializeField] GameObject CmdSelector;
+    [SerializeField] GameObject CmdUIinvoke;
+    [SerializeField] TextMeshProUGUI SkillName;
+    
+
     RectTransform CmdSelector_RECT;
     Vector2 CmdSelector_POS;
     Vector2 CmdSelector_FP;
     [SerializeField]int CmdSelect = 0;
 
     public static int GotExp = 0;
+
     
+
     //コントロールモード
     //0：プレイヤー操作モード（移動や通常攻撃などプレイヤーを操作するモード）
     //1：コマンド選択モード（コマンド選択にて操作するモード）
@@ -26,6 +32,7 @@ public class UIManage : MonoBehaviour
 
     public static int ControlMode = 0;
     public static float SpeedAdjust = 1.0f;
+
     void Start()
     {
         //CmdSelector = GameObject.Find("Cmd_Selector");
@@ -47,12 +54,12 @@ public class UIManage : MonoBehaviour
         }
 
         //プレイヤー操作中
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             switch (ControlMode)
             {
                 case 0:
-                    ControlMode = 2;
+                    ControlMode = 1;
                     CmdSelectUI.SetActive(true);
                     break;
                 case 2:
@@ -68,7 +75,7 @@ public class UIManage : MonoBehaviour
             case 0:
                 SpeedAdjust = 1.0f;
                 break;
-            case 2:
+            case 1:
                 SpeedAdjust = 0.3f;
 
                 if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -94,7 +101,23 @@ public class UIManage : MonoBehaviour
                 }
 
                 CmdSelector.transform.position = new Vector2(CmdSelector_POS.x, CmdSelector_POS.y);
+                
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    CmdUIinvoke.SetActive(true);
+
+                    CmdSelectUI.SetActive(false);
+                    ControlMode = 0;
+
+                    SkillName.text = "ナイフ弾幕";
+
+                    GameObject PlayerObj = GameObject.Find("Player");
+                    PlayerControl Plcon = PlayerObj.GetComponent<PlayerControl>();
+                    Plcon.KnifeThrow();
+                }
                 break;
         }
+
+        
     }
 }
