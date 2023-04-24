@@ -14,21 +14,22 @@ public class UIManage : MonoBehaviour
     [SerializeField] GameObject CmdSelector;
     [SerializeField] GameObject CmdUIinvoke;
     [SerializeField] TextMeshProUGUI SkillName;
-    
+
+    [SerializeField] GameObject DefeatUI;
+    [SerializeField] GameObject DefeatSelector;
 
     RectTransform CmdSelector_RECT;
-    Vector2 CmdSelector_POS;
-    Vector2 CmdSelector_FP;
+    Vector2 CmdSelector_POS, CmdSelector_FP;
+    Vector2 DefeatSelector_POS, DefeatSelector_FP;
     [SerializeField]int CmdSelect = 0;
 
     public static int GotExp = 0;
 
-    
-
     //コントロールモード
     //0：プレイヤー操作モード（移動や通常攻撃などプレイヤーを操作するモード）
     //1：コマンド選択モード（コマンド選択にて操作するモード）
-    //2：Victory/Defeat時の操作モード
+    //2：Victory時の操作モード
+    //3：Defeat時の操作モード
 
     public static int ControlMode = 0;
     public static float SpeedAdjust = 1.0f;
@@ -39,18 +40,22 @@ public class UIManage : MonoBehaviour
         CmdSelector_POS = CmdSelector.GetComponent<Transform>().position;
         CmdSelector_RECT = CmdSelector.GetComponent<RectTransform>();
         CmdSelector_FP = CmdSelector_POS;
-    }
 
+        DefeatSelector_POS = DefeatSelector.GetComponent<Transform>().position;
+        DefeatSelector_FP = DefeatSelector_POS;
+    }
     // Update is called once per frame
     void Update()
     {
         //敵を全滅させた時、「Victory」を表示
         EnemyCount.text = GameObject.FindGameObjectsWithTag("Enemy").Length.ToString();
 
+        
+
         if ((GameObject.FindGameObjectsWithTag("Enemy").Length) <= 0)
         {
-            VictoryUI.SetActive(true);
-            ControlMode = 2;
+            DefeatUI.SetActive(true);
+            ControlMode = 3;
         }
 
         //プレイヤー操作中
@@ -115,6 +120,27 @@ public class UIManage : MonoBehaviour
                     PlayerControl Plcon = PlayerObj.GetComponent<PlayerControl>();
                     Plcon.KnifeThrow();
                 }
+                break;
+            case 3:
+                //170-244
+                if (Input.GetKeyDown(KeyCode.UpArrow)){
+                    CmdSelect--;
+                    DefeatSelector_POS.y += 74.0f;
+                }
+                if (Input.GetKeyDown(KeyCode.DownArrow)){
+                    CmdSelect++;
+                    DefeatSelector_POS.y -= 74.0f;
+                }
+
+                if (CmdSelect < 0){
+                    CmdSelect = 1;
+                    DefeatSelector_POS.y = DefeatSelector_FP.y + 74.0f;
+                }
+                else if (CmdSelect >= 2){
+                    CmdSelect = 0;
+                    DefeatSelector_POS.y = DefeatSelector_FP.y;
+                }
+                DefeatSelector.transform.position = DefeatSelector_POS;
                 break;
         }
 

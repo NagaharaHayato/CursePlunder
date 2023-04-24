@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 960519690, guid: a3116a51f6d9d3b40addc65b3dd7811b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28773582, g: 0.4362481, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -251,6 +251,8 @@ MonoBehaviour:
   BossHPbar: {fileID: 9119040996412622809}
   ExpOrb_Obj: {fileID: 761216886393317385, guid: 9da7f276da6d230499f3f12a9183e102, type: 3}
   DamageView: {fileID: 5403138315800550304, guid: 2b33470ea47244a428c02f1868a6af49, type: 3}
+  BossHP: 1000
+  HP_per: 0
 --- !u!1 &9119040996412622809
 GameObject:
   m_ObjectHideFlags: 0
