@@ -15,6 +15,7 @@ public class PlayerClider : MonoBehaviour
          
             
         }
+
         if (collision.gameObject.CompareTag("Home"))
         {
             SceneManager.LoadScene("HomeScene");

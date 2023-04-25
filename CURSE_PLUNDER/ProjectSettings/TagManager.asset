@@ -11,6 +11,10 @@ TagManager:
   - Out
   - BattleGo
   - Cave
+  - Enemy
+  - Wall
+  - Sword
+  - Item
   layers:
   - Default
   - TransparentFX
