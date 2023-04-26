@@ -546,7 +546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'REVIVE
+  m_text: 'CONTINUE
 
     RETIRE '
   m_isRightToLeft: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 70
+  m_characterSpacing: 60.6
   m_wordSpacing: 0
   m_lineSpacing: 106.85
   m_lineSpacingMax: 0
@@ -3232,7 +3232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c37c346c56aaa459cedb77aca3ada0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: []
+  target:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1723818270
 GameObject:
   m_ObjectHideFlags: 0

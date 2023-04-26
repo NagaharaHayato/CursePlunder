@@ -134,7 +134,7 @@ public class UIManage : MonoBehaviour
 
                 if (CmdSelect < 0){
                     CmdSelect = 1;
-                    DefeatSelector_POS.y = DefeatSelector_FP.y + 74.0f;
+                    DefeatSelector_POS.y = DefeatSelector_FP.y - 74.0f;
                 }
                 else if (CmdSelect >= 2){
                     CmdSelect = 0;
