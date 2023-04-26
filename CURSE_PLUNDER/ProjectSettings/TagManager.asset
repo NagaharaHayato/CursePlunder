@@ -11,11 +11,11 @@ TagManager:
   - Out
   - BattleGo
   - Cave
+  - Enemy
   - Wall
   - Sword
-  - ItemGetter
-  - Enemy
-  - Boss_FireBall
+  - Item
+  - Cave2
   layers:
   - Default
   - TransparentFX

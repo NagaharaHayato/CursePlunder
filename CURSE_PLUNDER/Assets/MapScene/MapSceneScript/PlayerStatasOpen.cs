@@ -10,7 +10,7 @@ public class PlayerStatasOpen : MonoBehaviour
     /// </summary>
     public GameObject WindowObject;
     public GameObject WindowObject2;
-    public GameObject WindowObject3;
+    //public GameObject WindowObject3;
     //オープン用メッセージウィンドウは表示扱い
     bool Wenabled = true;
     
