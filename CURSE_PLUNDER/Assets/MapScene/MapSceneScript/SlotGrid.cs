@@ -9,7 +9,7 @@ public class SlotGrid : MonoBehaviour
     [SerializeField]
     private GameObject slotPrefab;
 
-    private int slotNumber = 20;
+    private int slotNumber = 4;
 
     [SerializeField]
     private Item[] allItems;
@@ -19,16 +19,12 @@ public class SlotGrid : MonoBehaviour
     private static SlotGrid instance;
     private int Length;
 
-    //状態を意地
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
+    //スロット内に存在する、スロットを保持するリストを作成する。
     public static SlotGrid Instance
     {
         get
         {
+            ///ItemObject用のスロットグリッドインスタンス
             SlotGrid[] instances = null;
             if(instance==null)
             {
@@ -60,29 +56,35 @@ public class SlotGrid : MonoBehaviour
             GameObject slotObj = Instantiate(slotPrefab, this.transform);
 
             Slot slot = slotObj.GetComponent<Slot>();
+            //ここでスロットすべて入った。
             allSlots.Add(slot);
 
       
 
         }
 
+        //動作確認用
         foreach(var item in allItems)
         {
             AddItem(item);
         }
 
     }
-
+    //グリッドで新しくアイテムを追加するメソッド。
     public bool AddItem(Item item)
     {
         foreach(var slot in allSlots)
         {
+            //slot.MyItemがnullなら空っぽ
             if(slot.MyItem==null)
             {
+                //アイテムをつかうときはSetItemを使用.
                 slot.SetItem(item);
+                //アイテム回収した場合はtrue
                 return true;
             }
         }
+        //すべてのスロットにアイテムが入っていたら foreachを抜けfalseで返す
         return false;
     }
 }

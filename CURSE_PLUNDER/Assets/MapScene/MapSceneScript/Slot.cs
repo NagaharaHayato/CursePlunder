@@ -15,10 +15,7 @@ public class Slot : MonoBehaviour,IPointerClickHandler
     private UnityEngine.UI.Image itemImage;
 
     //状態を意地
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+  
 
     public Item MyItem { get => item; private set => item = value; }
 
@@ -30,6 +27,8 @@ public class Slot : MonoBehaviour,IPointerClickHandler
         GameObject itemObj = MyItem.GetItemObj();
 
         //for　debugging
+        //戻り値を保持する変数 ItemObjを用意する。
+        //手に入れたアイテムの位置を調整するコード
         itemObj.transform.SetParent(GameObject.Find("PlayerCanvas").transform, false);
 
         //アイテムを捨てる

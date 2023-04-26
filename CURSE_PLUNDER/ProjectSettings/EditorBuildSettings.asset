@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/MapScene/CaveScene.unity
     guid: fb2cea3bfaabf4d4aa53d2310e66dc63
   - enabled: 1
+    path: Assets/MapScene/CaveScene2.unity
+    guid: 60908b83ea50a1a47a4fccba6bdf6baf
+  - enabled: 1
     path: Assets/Scenes/BattleScene.unity
     guid: 4ca83fee85f177f4391c0e3304eb9649
   m_configObjects: {}

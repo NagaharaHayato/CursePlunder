@@ -15,6 +15,7 @@ TagManager:
   - Wall
   - Sword
   - Item
+  - Cave2
   layers:
   - Default
   - TransparentFX

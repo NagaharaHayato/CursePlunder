@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2387035820740517712}
   - component: {fileID: 5117150863753966180}
   - component: {fileID: 5226649658962096632}
-  - component: {fileID: 2534202152420242666}
+  - component: {fileID: 5818661063616345407}
+  - component: {fileID: 4235501973846031636}
   m_Layer: 5
   m_Name: ItemUI
   m_TagString: Untagged
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_Spacing: {x: 5, y: 5}
   m_Constraint: 2
   m_ConstraintCount: 4
---- !u!114 &2534202152420242666
+--- !u!114 &5818661063616345407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,3 +117,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 1
+--- !u!114 &4235501973846031636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162963199168589670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d360e6cdc4cd5354e83e234c3a679c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotPrefab: {fileID: 1699692665318397922, guid: 477bc9043f96f8548a0399bbae731b23, type: 3}
+  allItems:
+  - {fileID: 11400000, guid: 6d538c5d53fa0c94891d65c1e3d28f4f, type: 2}
