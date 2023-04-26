@@ -16,6 +16,7 @@ TagManager:
   - Sword
   - Item
   - Cave2
+  - ItemGetter
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Fader
   - 
   - 
   - 

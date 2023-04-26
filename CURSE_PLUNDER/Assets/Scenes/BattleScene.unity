@@ -3971,6 +3971,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2342781380824962617, guid: 6f6fff1deb0dfda4692f628787360f88, type: 3}
+      propertyPath: BossHP
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2435165439573160270, guid: 6f6fff1deb0dfda4692f628787360f88, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0.4

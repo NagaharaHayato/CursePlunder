@@ -51,8 +51,8 @@ public class Timer : MonoBehaviour
         }
         else if(time<=1)
         {
-            DefeatUI.SetActive(true);
-            isTimeUp = true;
+            //DefeatUI.SetActive(true);
+            //isTimeUp = true;
         }
     }
 }
