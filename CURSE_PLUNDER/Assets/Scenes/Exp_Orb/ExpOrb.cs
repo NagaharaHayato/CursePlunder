@@ -11,7 +11,7 @@ public class ExpOrb : MonoBehaviour
     GameObject PlayerObj;
     Rigidbody2D OrbRB;
     Vector2 PlayerPos;
-    float MOVE_SPEED = 10.0f;
+    float MOVE_SPEED = 0.1f;
     float MOVE_ANGLE;
     int MOVE_PHASE = 0;
     
@@ -28,7 +28,7 @@ public class ExpOrb : MonoBehaviour
     {
         PlayerPos = PlayerObj.GetComponent<Transform>().position;
 
-        transform.position = Vector2.MoveTowards(transform.position, PlayerPos, MOVE_SPEED * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, PlayerPos, (MOVE_SPEED * Time.deltaTime)*UIManage.SpeedAdjust);
         MOVE_SPEED += 0.5f;
 
     }

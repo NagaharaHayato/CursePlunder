@@ -14,11 +14,12 @@ public class PlayerControl : MonoBehaviour
 	//最後の入力された方向を覚えておくためベクター
 	Vector2 lastmove = new Vector2(0,0);				//入力された方向を保存する用
 	Vector2 moveact;									//移動ベクトル
-	[SerializeField] GameObject SwordObj;				//剣のオブジェクト
+	[SerializeField] public GameObject SwordObj;                //剣のオブジェクト
+	[SerializeField] public GameObject FreeStyleSword;			//フリースタイルソード（角度指定可）
 
-	[SerializeField] private float MOVE_SPEED = 60.0f;  //主人公の移動速度
-	public static float PLAYER_DIR_RAD = 90.0f;			//主人公の向き
-
+	[SerializeField] private float MOVE_SPEED = 6.0f;  //主人公の移動速度
+	public static float PLAYER_DIR_RAD = 90.0f;         //主人公の向き
+	
 	
 	void Start()
 	{
@@ -34,11 +35,17 @@ public class PlayerControl : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		
+
 
 		//方向キーの入力状態を取得
-		moveact = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-		
+		if (UIManage.ControlMode == 0)
+		{
+			moveact = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		}
+		else
+		{
+			moveact = Vector2.zero;
+		}
 		//方向キーが入力されていた場合
 		if (moveact != Vector2.zero)
 		{
@@ -72,7 +79,7 @@ public class PlayerControl : MonoBehaviour
 		}
 
 		//剣を投げる
-		if (Input.GetKeyDown(KeyCode.F))
+		if (UIManage.ControlMode==0&&Input.GetKeyDown(KeyCode.F))
 		{
 			//剣のオブジェクトを生成し、主人公が向いている方向へ飛ばす（剣の移動処理は別のスクリプトで実装済み）
 			Instantiate(SwordObj,transform.position,Quaternion.Euler(0,0,-PLAYER_DIR_RAD+90));
@@ -86,4 +93,9 @@ public class PlayerControl : MonoBehaviour
 		this.animator.SetFloat("VectorY", vec.y);
 		return;
 	}
+
+	public void KnifeThrow()
+	{
+		for(int i = 0; i < 90; i++) Instantiate(FreeStyleSword, transform.position, Quaternion.Euler(0, 0,i*8));
+    }
 }
