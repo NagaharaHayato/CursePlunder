@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class Slot : MonoBehaviour,IPointerClickHandler
+public class Slot : MonoBehaviour
 {
     private Item item;
 
@@ -19,20 +19,27 @@ public class Slot : MonoBehaviour,IPointerClickHandler
 
     public Item MyItem { get => item; private set => item = value; }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void Update()
     {
-        if (MyItem == null) return;
+        //エンターで捨てる
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (MyItem == null) return;
 
-        //ItemObjectを生成する。
-        GameObject itemObj = MyItem.GetItemObj();
+            //ItemObjectを生成する。
+            GameObject itemObj = MyItem.GetItemObj();
 
-        //for　debugging
-        //戻り値を保持する変数 ItemObjを用意する。
-        //手に入れたアイテムの位置を調整するコード
-        itemObj.transform.SetParent(GameObject.Find("PlayerCanvas").transform, false);
+            //for　debugging
+            //戻り値を保持する変数 ItemObjを用意する。
+            //手に入れたアイテムの位置を調整するコード
+            itemObj.transform.SetParent(GameObject.Find("PlayerCanvas").transform, false);
 
-        //アイテムを捨てる
-        SetItem(null);
+
+            //アイテムを捨てる
+            SetItem(null);
+            // アイテム消失
+            Object.Destroy(itemObj);
+        }
     }
 
     public void SetItem(Item item)

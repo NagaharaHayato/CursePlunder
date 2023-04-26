@@ -532,6 +532,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyCount: {fileID: 1236028161}
   VictoryUI: {fileID: 1122512792}
+  CmdSelectUI: {fileID: 0}
+  CmdSelector: {fileID: 0}
+  CmdUIinvoke: {fileID: 0}
+  SkillName: {fileID: 0}
+  DefeatUI: {fileID: 0}
+  DefeatSelector: {fileID: 0}
+  CmdSelect: 0
 --- !u!1 &196837615
 GameObject:
   m_ObjectHideFlags: 0
@@ -122112,6 +122119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SwordObj: {fileID: 0}
+  FreeStyleSword: {fileID: 0}
   MOVE_SPEED: 35
 --- !u!114 &9176379553357426735
 MonoBehaviour:
