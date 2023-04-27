@@ -14,6 +14,8 @@ public class ItemObject : MonoBehaviour
         Item = item;
     }
 
+
+  
     //プレイヤーが触れた場合にアイテムを拾う
     void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {

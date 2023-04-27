@@ -19,6 +19,8 @@ public class SlotGrid : MonoBehaviour
     private static SlotGrid instance;
     private int Length;
 
+    
+
     //スロット内に存在する、スロットを保持するリストを作成する。
     public static SlotGrid Instance
     {
