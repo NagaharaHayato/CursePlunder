@@ -6,16 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class ItemObject : MonoBehaviour
 {
+
+
     //Itemを保持
     private Item Item { get; set; }
     //オブジェクトを捨てる時に地面にオブジェクトが生成される機能。
-   public void OnMakeObject(Item item)
+    public void OnMakeObject(Item item)
     {
-        Item = item;
+     Item = item;
     }
 
 
-  
+
     //プレイヤーが触れた場合にアイテムを拾う
     void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
@@ -23,6 +25,7 @@ public class ItemObject : MonoBehaviour
         {
             Debug.Log("あああ");
             TakeItem();
+           
         }
     }
 

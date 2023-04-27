@@ -17,7 +17,8 @@ public class Item : ScriptableObject
     public string MyItemName { get => itemName; }
     public Sprite MyItemImage { get => itemImage; }
 
-    //ó‘Ô‚ğˆÓ’n
+
+  
     //void Awake()
     //{
     //    DontDestroyOnLoad(gameObject);

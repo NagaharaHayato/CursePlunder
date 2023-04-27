@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SlotGrid : MonoBehaviour
 {
-  
+    //public static SlotGrid singleton;
 
     [SerializeField]
     private GameObject slotPrefab;
@@ -19,7 +20,26 @@ public class SlotGrid : MonoBehaviour
     private static SlotGrid instance;
     private int Length;
 
-    
+
+
+
+    //// Use this for initialization
+    //void Awake()
+    //{
+    //    //　スクリプトが設定されていなければゲームオブジェクトを残しつつスクリプトを設定
+    //    if (singleton == null)
+    //    {
+    //        DontDestroyOnLoad(gameObject);
+    //        singleton = this;
+    //        //　既にGameStartスクリプトがあればこのシーンの同じゲームオブジェクトを削除
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
+
+
 
     //スロット内に存在する、スロットを保持するリストを作成する。
     public static SlotGrid Instance
@@ -48,10 +68,13 @@ public class SlotGrid : MonoBehaviour
             }
             return instance;
         }
+
     }
 
     void Start()
     {
+
+       
         allSlots = new List<Slot>();
         for(int i=0;i<slotNumber;i++)
         {
@@ -65,24 +88,28 @@ public class SlotGrid : MonoBehaviour
 
         }
 
-        //動作確認用
-        foreach(var item in allItems)
-        {
-            AddItem(item);
-        }
+        ////動作確認用
+        ////foreach (var item in allItems)
+        ////{
+        ////    AddItem(item);
+
+        ////}
+
+
 
     }
     //グリッドで新しくアイテムを追加するメソッド。
     public bool AddItem(Item item)
     {
-        foreach(var slot in allSlots)
+        
+        foreach (var slot in allSlots)
         {
             //slot.MyItemがnullなら空っぽ
             if(slot.MyItem==null)
             {
                 //アイテムをつかうときはSetItemを使用.
                 slot.SetItem(item);
-                //アイテム回収した場合はtrue
+               
                 return true;
             }
         }
