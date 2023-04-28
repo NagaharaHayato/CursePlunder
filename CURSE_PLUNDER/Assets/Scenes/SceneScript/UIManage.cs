@@ -143,55 +143,61 @@ public class UIManage : MonoBehaviour
                 break;
             //敗北時の「Continue」か「Retire」を選択するモードの場合----------------------------------------------------------------------------------------//
             case 3:
-                //コマンド選択も強制的に閉じる
-                CmdUIinvoke.SetActive(false);
-                CmdSelectUI.SetActive(false);
-
-
-                //上下キーで選択
-                if (Input.GetKeyDown(KeyCode.UpArrow)){
-                    CmdSelect--;
-                    DefeatSelector_POS.y += 74.0f;
-                }
-                if (Input.GetKeyDown(KeyCode.DownArrow)){
-                    CmdSelect++;
-                    DefeatSelector_POS.y -= 74.0f;
-                }
-                
-
-                //セレクト位置が「0以下」もしくは「4以上」だった場合は座標とセレクト位置の再設定
-				if (CmdSelect < 0){
-                    CmdSelect = 1;
-                    DefeatSelector_POS.y = DefeatSelector_FP.y - 74.0f;
-                }
-                else if (CmdSelect >= 2){
-                    CmdSelect = 0;
-                    DefeatSelector_POS.y = DefeatSelector_FP.y;
-                }
-
-                //セレクト位置を表すパネルの位置を更新
-                DefeatSelector.transform.position = DefeatSelector_POS;
-
-                //決定キーを押された時に
-                //CONTINUE(CmdSelectが0）を選択している場合はこのシーンを読み直す
-                //RETIRE(CmdSelectが1）を選択している場合は「TITLE」へ行こう
-                if (Input.GetKeyDown(KeyCode.F))
                 {
-                    switch (CmdSelect)
-                    {
-                        case 0:
-                            CmdSelect = 0;
-                            ControlMode = 0;
+                    //コマンド選択も強制的に閉じる
+                    CmdUIinvoke.SetActive(false);
+                    CmdSelectUI.SetActive(false);
 
-                            //一旦、バトルシーンをもう一度読み直す
-                            SceneManager.LoadScene("BattleScene");
-                            break;
-                        case 1:
-                            //タイトルシーンへ戻る
-                            SceneManager.LoadScene("Title");
-                            break;
+
+                    //上下キーで選択
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        CmdSelect--;
+                        DefeatSelector_POS.y += 74.0f;
+                    }
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        CmdSelect++;
+                        DefeatSelector_POS.y -= 74.0f;
                     }
 
+
+                    //セレクト位置が「0以下」もしくは「4以上」だった場合は座標とセレクト位置の再設定
+                    if (CmdSelect < 0)
+                    {
+                        CmdSelect = 1;
+                        DefeatSelector_POS.y = DefeatSelector_FP.y - 74.0f;
+                    }
+                    else if (CmdSelect >= 2)
+                    {
+                        CmdSelect = 0;
+                        DefeatSelector_POS.y = DefeatSelector_FP.y;
+                    }
+
+                    //セレクト位置を表すパネルの位置を更新
+                    DefeatSelector.transform.position = DefeatSelector_POS;
+
+                    //決定キーを押された時に
+                    //CONTINUE(CmdSelectが0）を選択している場合はこのシーンを読み直す
+                    //RETIRE(CmdSelectが1）を選択している場合は「TITLE」へ行こう
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        switch (CmdSelect)
+                        {
+                            case 0:
+                                CmdSelect = 0;
+                                ControlMode = 0;
+
+                                //一旦、バトルシーンをもう一度読み直す
+                                SceneManager.LoadScene("BattleScene");
+                                break;
+                            case 1:
+                                //タイトルシーンへ戻る
+                                SceneManager.LoadScene("Title");
+                                break;
+                        }
+
+                    }
                 }
                 break;
         }
