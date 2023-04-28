@@ -11,13 +11,16 @@ public class Item : ScriptableObject
     private Sprite itemImage;
     
     //アイテムオブジェクトの変数。
-    [SerializeField]
-    private ItemObject itemObj;
+    //[SerializeField]
+    //private ItemObject itemObj;
 
     public string MyItemName { get => itemName; }
     public Sprite MyItemImage { get => itemImage; }
 
-
+    public void Use()
+    {
+        Debug.Log(itemName + "を使いました。");
+    }
   
     //void Awake()
     //{
@@ -27,15 +30,15 @@ public class Item : ScriptableObject
     /// プレハブをインスタンスかする機能を追加
     /// </summary>
     /// <returns></returns>
-    public GameObject GetItemObj()
-    {
-        //変数 goを用意
-        GameObject go = Instantiate(itemObj.gameObject);
-        //ItemObjectのOnmakeObjectを呼び出す.
-        //goからItemObjectインスタンスを見つけ出す
-        ////引数として自分自身を返す..
-        go.GetComponent<ItemObject>().OnMakeObject(this);
-        //戻り値はインスタンス化したメソッド
-        return go;
-    }
+    //public GameObject GetItemObj()
+    //{
+    //    //変数 goを用意
+    //    GameObject go = Instantiate(itemObj.gameObject);
+    //    //ItemObjectのOnmakeObjectを呼び出す.
+    //    //goからItemObjectインスタンスを見つけ出す
+    //    ////引数として自分自身を返す..
+    //    go.GetComponent<ItemObject>().OnMakeObject(this);
+    //    //戻り値はインスタンス化したメソッド
+    //    return go;
+    //}
 }

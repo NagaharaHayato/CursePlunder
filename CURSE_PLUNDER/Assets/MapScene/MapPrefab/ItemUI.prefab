@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5117150863753966180}
   - component: {fileID: 5226649658962096632}
   - component: {fileID: 5818661063616345407}
-  - component: {fileID: 4235501973846031636}
+  - component: {fileID: 6028620560275632310}
   m_Layer: 5
   m_Name: ItemUI
   m_TagString: Untagged
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 1
---- !u!114 &4235501973846031636
+--- !u!114 &6028620560275632310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
