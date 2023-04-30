@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 using TMPro;
 using System.Linq.Expressions;
 using Unity.VisualScripting;
@@ -33,7 +35,7 @@ public class UIManage : MonoBehaviour
 
     public static int ControlMode = 0;
     public static float SpeedAdjust = 1.0f;
-
+    
     void Start()
     {
         //CmdSelector = GameObject.Find("Cmd_Selector");
@@ -54,8 +56,8 @@ public class UIManage : MonoBehaviour
 
         if ((GameObject.FindGameObjectsWithTag("Enemy").Length) <= 0)
         {
-            DefeatUI.SetActive(true);
-            ControlMode = 3;
+            VictoryUI.SetActive(true);
+            ControlMode = 2;
         }
 
         //プレイヤー操作中
@@ -77,12 +79,17 @@ public class UIManage : MonoBehaviour
         
         switch (ControlMode)
         {
+            //プレイヤー操作モード--------------------------------------------------------------------------------------------------------------------------//
             case 0:
-                SpeedAdjust = 1.0f;
+                SpeedAdjust = 1.0f;                                     //ゲーム全体の速度を通常に戻す
                 break;
+
+            //コマンド選択モードの場合----------------------------------------------------------------------------------------------------------------------//
             case 1:
+                //ゲーム全体の速度を0.3倍速に設定
                 SpeedAdjust = 0.3f;
 
+                //上下キーでコマンドの選択
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     CmdSelect--;
@@ -94,6 +101,7 @@ public class UIManage : MonoBehaviour
                     CmdSelector_POS.y -= 43.0f;
                 }
 
+                //セレクト位置が0以下もしくは4以上になった場合、セレクト位置と座標を戻す
                 if (CmdSelect < 0)
                 {
                     CmdSelector_POS.y = CmdSelector_FP.y - (43.0f * 4);
@@ -105,8 +113,10 @@ public class UIManage : MonoBehaviour
                     CmdSelect = 0;
                 }
 
+                //セレクト位置を表すパネルの位置を更新
                 CmdSelector.transform.position = new Vector2(CmdSelector_POS.x, CmdSelector_POS.y);
                 
+                //決定キー[F]でコマンドの実行
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     CmdUIinvoke.SetActive(true);
@@ -114,33 +124,81 @@ public class UIManage : MonoBehaviour
                     CmdSelectUI.SetActive(false);
                     ControlMode = 0;
 
-                    SkillName.text = "ナイフ弾幕";
+                    SkillName.text = "ナイフ乱舞";
 
                     GameObject PlayerObj = GameObject.Find("Player");
                     PlayerControl Plcon = PlayerObj.GetComponent<PlayerControl>();
                     Plcon.KnifeThrow();
                 }
                 break;
-            case 3:
-                //170-244
-                if (Input.GetKeyDown(KeyCode.UpArrow)){
-                    CmdSelect--;
-                    DefeatSelector_POS.y += 74.0f;
-                }
-                if (Input.GetKeyDown(KeyCode.DownArrow)){
-                    CmdSelect++;
-                    DefeatSelector_POS.y -= 74.0f;
-                }
+            
+            //勝利時----------------------------------------------------------------------------------------------------------------------------------------//
+            case 2:
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    ControlMode = 0;
 
-                if (CmdSelect < 0){
-                    CmdSelect = 1;
-                    DefeatSelector_POS.y = DefeatSelector_FP.y + 74.0f;
+                    SceneManager.LoadScene("CaveScene2");
                 }
-                else if (CmdSelect >= 2){
-                    CmdSelect = 0;
-                    DefeatSelector_POS.y = DefeatSelector_FP.y;
+                break;
+            //敗北時の「Continue」か「Retire」を選択するモードの場合----------------------------------------------------------------------------------------//
+            case 3:
+                {
+                    //コマンド選択も強制的に閉じる
+                    CmdUIinvoke.SetActive(false);
+                    CmdSelectUI.SetActive(false);
+
+
+                    //上下キーで選択
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        CmdSelect--;
+                        DefeatSelector_POS.y += 74.0f;
+                    }
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        CmdSelect++;
+                        DefeatSelector_POS.y -= 74.0f;
+                    }
+
+
+                    //セレクト位置が「0以下」もしくは「4以上」だった場合は座標とセレクト位置の再設定
+                    if (CmdSelect < 0)
+                    {
+                        CmdSelect = 1;
+                        DefeatSelector_POS.y = DefeatSelector_FP.y - 74.0f;
+                    }
+                    else if (CmdSelect >= 2)
+                    {
+                        CmdSelect = 0;
+                        DefeatSelector_POS.y = DefeatSelector_FP.y;
+                    }
+
+                    //セレクト位置を表すパネルの位置を更新
+                    DefeatSelector.transform.position = DefeatSelector_POS;
+
+                    //決定キーを押された時に
+                    //CONTINUE(CmdSelectが0）を選択している場合はこのシーンを読み直す
+                    //RETIRE(CmdSelectが1）を選択している場合は「TITLE」へ行こう
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        switch (CmdSelect)
+                        {
+                            case 0:
+                                CmdSelect = 0;
+                                ControlMode = 0;
+
+                                //一旦、バトルシーンをもう一度読み直す
+                                SceneManager.LoadScene("BattleScene");
+                                break;
+                            case 1:
+                                //タイトルシーンへ戻る
+                                SceneManager.LoadScene("Title");
+                                break;
+                        }
+
+                    }
                 }
-                DefeatSelector.transform.position = DefeatSelector_POS;
                 break;
         }
 

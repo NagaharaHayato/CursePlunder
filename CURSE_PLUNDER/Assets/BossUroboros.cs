@@ -9,10 +9,13 @@ public class BossUroboros : MonoBehaviour
     [SerializeField]GameObject BossHPbar;
     [SerializeField] GameObject ExpOrb_Obj;
     [SerializeField] GameObject DamageView;
+
+    GameObject FireBleath;
+
     GameObject TargetObj;
     GameObject UIcanvas;
     Animator BossAnim;
-    [SerializeField] public int BossHP = 1000;
+    [SerializeField] public int BossHP = 100;
     [SerializeField] float HP_per;
     int BossMaxHP;
     
