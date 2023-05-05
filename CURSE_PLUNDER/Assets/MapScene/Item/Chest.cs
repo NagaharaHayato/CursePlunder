@@ -26,4 +26,8 @@ public class Chest : MonoBehaviour
     {
         spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
+    //protected override void OnClick()
+    //{
+    //    SlotGrid
+    //}
 }

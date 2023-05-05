@@ -16,6 +16,7 @@ TagManager:
   - Sword
   - Item
   - Cave2
+  - Boss
   layers:
   - Default
   - TransparentFX
