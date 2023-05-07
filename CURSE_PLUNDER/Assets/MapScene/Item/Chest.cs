@@ -11,6 +11,7 @@ public class Chest : MonoBehaviour
 
     private bool isOpened = false;
     private SpriteRenderer spriteRenderer;
+   
 
     public bool IsOpened
     {
@@ -30,4 +31,16 @@ public class Chest : MonoBehaviour
     //{
     //    SlotGrid
     //}
+    //プレイヤーが触れた場合にアイテムを拾う
+    void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("チェスト開きます。");
+            SlotGrid.Instance.GetItem(item);
+            IsOpened = true;
+
+        }
+    }
+
 }

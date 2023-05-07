@@ -7,6 +7,11 @@ using UnityEngine;
 
 public class SlotGrid : MonoBehaviour
 {
+    private static SlotGrid instance;
+    public static SlotGrid Instance { get {
+            if (instance == null) instance = FindObjectOfType<SlotGrid>();
+            return instance;
+        } }
     [SerializeField] private int slotNumber;
     [SerializeField] private GameObject slotPrefab;
     private List<Slot> allSlots=new List<Slot>();
@@ -31,7 +36,7 @@ public class SlotGrid : MonoBehaviour
         }
 
     }
-    private void GetItem(Item item)
+    public void GetItem(Item item)
     {
         foreach (var slot in allSlots)
         {
