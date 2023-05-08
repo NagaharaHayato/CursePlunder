@@ -127,7 +127,7 @@ public class Slime_Act : MonoBehaviour
             Slime_HP--;
             Slime_ST--;
             //「DamageView（ダメージ表示オブジェクト）」の複製時にスライムがいるワールド座標からビューポート座標に変換する
-            GameObject _damageView = Instantiate(DamageView, Camera.main.WorldToViewportPoint(transform.position), Quaternion.identity);
+            GameObject _damageView = Instantiate(DamageView, Camera.main.WorldToViewportPoint(UIDisplayPos.transform.position), Quaternion.identity);
             //描画先のキャンバスを設定（親と子のオブジェクト設定）
             _damageView.transform.SetParent(UIcanvas.transform,false);
             //テストなのでダメージ表示は「1」
