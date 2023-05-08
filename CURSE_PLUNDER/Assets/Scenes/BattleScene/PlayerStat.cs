@@ -16,11 +16,15 @@ public class PlayerStat : MonoBehaviour
     private int CursePoint;
     private float HP_Percentage;
 
+    public static int GotCursePoint = 0;
+
     [SerializeField] TextMeshProUGUI    PlayerName_String;
     [SerializeField] TextMeshProUGUI    HP_String;
     [SerializeField] TextMeshProUGUI    MaxHP_String;
     [SerializeField] TextMeshProUGUI    CursePoint_String;
     [SerializeField] GameObject         HP_Bar;
+
+    [SerializeField] TextMeshProUGUI    GetCursedPointUI;
 
     void Awake()
     {
@@ -51,7 +55,16 @@ public class PlayerStat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //HPバーの更新
         HP_Percentage = (float)HP / (float)MaxHP;
         HP_Bar.GetComponent<RectTransform>().anchorMax = new Vector2(HP_Percentage, 1);
+
+        //獲得した呪いポイントを反映
+        GetCursedPointUI.text = GotCursePoint.ToString();
+    }
+
+    public static void AddCursePoint(int cursepoint)
+    {
+        GotCursePoint += cursepoint;
     }
 }

@@ -136,6 +136,7 @@ public class Slime_Act : MonoBehaviour
             //スライムのHPがゼロになったら経験値オーブを生成して、自身のオブジェクトを削除する
             if (Slime_HP <= 0)
             {
+                PlayerStat.AddCursePoint(10);
                 Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
