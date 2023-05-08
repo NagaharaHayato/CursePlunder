@@ -82,7 +82,7 @@ public class Slime_Act : MonoBehaviour
             direction = 1;
             if (rad >= 337.5 || (rad >= 0.0f && rad <= 22.5f))
             {
-
+                
             }
             else
             {
@@ -124,7 +124,7 @@ public class Slime_Act : MonoBehaviour
         if (collision.gameObject.CompareTag("Sword"))
         {
             //ナイフが当たったらHPもしくはSTを減らす
-            //Slime_HP--;
+            Slime_HP--;
             Slime_ST--;
             //「DamageView（ダメージ表示オブジェクト）」の複製時にスライムがいるワールド座標からビューポート座標に変換する
             GameObject _damageView = Instantiate(DamageView, Camera.main.WorldToViewportPoint(UIDisplayPos.transform.position), Quaternion.identity);
