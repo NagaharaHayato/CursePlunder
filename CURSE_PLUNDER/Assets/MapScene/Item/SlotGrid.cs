@@ -24,15 +24,15 @@ public class SlotGrid : MonoBehaviour
         {
             Slot slot=Instantiate(slotPrefab, this.transform).GetComponent<Slot>();
 
-            //slotにallitemを挿入
+            ////slotにallitemを挿入
             allSlots.Add(slot);
 
-            ////動作確認用
-            foreach (var item in allItems)
-            {
-                GetItem(item);
+            //////動作確認用
+            //foreach (var item in allItems)
+            //{
+            //    GetItem(item);
 
-            }
+            //}
         }
 
     }

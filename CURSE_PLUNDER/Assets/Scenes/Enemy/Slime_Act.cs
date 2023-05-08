@@ -12,6 +12,10 @@ public class Slime_Act : MonoBehaviour
     [SerializeField] GameObject DamageView;
     [SerializeField] EnemyDataBase EnemyData;
     [SerializeField] GameObject UIDisplayPos;
+    
+    //敵を入れよう。
+    [SerializeField] GameObject enemy;
+
     GameObject TargetObj;
     GameObject UIcanvas;
 
@@ -29,6 +33,9 @@ public class Slime_Act : MonoBehaviour
     private bool    IsSwoon         = false;            //気絶状態フラグ
     private float   rad             = 0;                //角度
 
+    //private Vector2 enemyPos;
+
+
     Rigidbody2D     SlimeRB;                            //この敵のリジッドボディ
     Animator        SlimeAnim;                           //この敵のアニメーター
 
@@ -36,6 +43,9 @@ public class Slime_Act : MonoBehaviour
     [SerializeField] float ST_per;
     void Start()
     {
+        //敵キャラの座標を取得
+        SlimePos = enemy.GetComponent<Transform>().position;
+
         SlimeAnim = GetComponent<Animator>();           //アニメーターの情報を取得
         SlimeRB = GetComponent<Rigidbody2D>();          //リジットボディの情報を取得
 		TargetObj = GameObject.Find("Player");          //ターゲットをプレイヤーに設定
@@ -111,7 +121,8 @@ public class Slime_Act : MonoBehaviour
                 SwoonTime   = 100;
             }else if (IsSwoon){
                 SwoonTime--;
-                if (SwoonTime <= 0){
+                if (SwoonTime <= 0)
+                {
                     IsSwoon     = false;            //気絶状態を解除
                     Slime_ST    = EnemyData.MaxST;  //データベースから値を持ってきてST値をリセット
                 }
@@ -126,12 +137,16 @@ public class Slime_Act : MonoBehaviour
             //ナイフが当たったらHPもしくはSTを減らす
             //Slime_HP--;
             Slime_ST--;
+            
             //「DamageView（ダメージ表示オブジェクト）」の複製時にスライムがいるワールド座標からビューポート座標に変換する
             GameObject _damageView = Instantiate(DamageView, Camera.main.WorldToViewportPoint(UIDisplayPos.transform.position), Quaternion.identity);
             //描画先のキャンバスを設定（親と子のオブジェクト設定）
             _damageView.transform.SetParent(UIcanvas.transform,false);
+            //敵の位置を取得そして出す　バグる。
+            _damageView.transform.position = SlimePos;
             //テストなのでダメージ表示は「1」
             _damageView.GetComponent<TextMeshProUGUI>().text = "1";
+           
 
             //スライムのHPがゼロになったら経験値オーブを生成して、自身のオブジェクトを削除する
             if (Slime_HP <= 0)

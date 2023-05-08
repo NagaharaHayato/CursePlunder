@@ -2812,6 +2812,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1149299561}
     - target: {fileID: 9117314594855323598, guid: 32c3fa63683628049996e7198c072c39, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 2066163697}
+    - target: {fileID: 9117314594855323598, guid: 32c3fa63683628049996e7198c072c39, type: 3}
       propertyPath: EnemyData
       value: 
       objectReference: {fileID: 11400000, guid: 85c5115a7ed187542afe1f481fb4ed0c, type: 2}
@@ -4341,6 +4345,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983977427}
   m_CullTransparentMesh: 1
+--- !u!1 &2066163697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1069268051863549171, guid: 32c3fa63683628049996e7198c072c39, type: 3}
+  m_PrefabInstance: {fileID: 1462841888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2089046484
 GameObject:
   m_ObjectHideFlags: 0
