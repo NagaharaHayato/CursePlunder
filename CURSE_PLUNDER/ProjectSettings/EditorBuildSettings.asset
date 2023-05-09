@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleScene.unity
     guid: 4ca83fee85f177f4391c0e3304eb9649
+  - enabled: 1
+    path: Assets/Title/Cregit.unity
+    guid: 4b2072bc1fdc3fa4492e6d5331c2f996
   m_configObjects: {}

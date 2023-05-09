@@ -18,6 +18,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
 
     public static int countdownMinu = 30;
+    //public static int countdownMinu = 1;
     private static float countdownSecound = countdownMinu * 60;
     //　トータル制限時間
     private Text timeText;
@@ -57,7 +58,7 @@ public class Timer : MonoBehaviour
             var span = new TimeSpan(0, 0, (int)countdownSecound);
             timeText.text = span.ToString(@"mm\:ss");
         }
-        if(countdownMinu<=1)
+        if(countdownSecound<=0)
         {
                 DefeatUI.SetActive(true);
                 isTimeUp = true;
