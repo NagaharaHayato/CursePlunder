@@ -18,6 +18,9 @@ TagManager:
   - Cave2
   - ItemGetter
   - Cave3
+  - Fire
+  - Water
+  - Cyclon
   layers:
   - Default
   - TransparentFX
