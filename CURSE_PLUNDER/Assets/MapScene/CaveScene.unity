@@ -126158,6 +126158,7 @@ MonoBehaviour:
   MaxHP_String: {fileID: 1455882918}
   CursePoint_String: {fileID: 1341007200}
   HP_Bar: {fileID: 2005048322}
+  GetCursedPointUI: {fileID: 0}
 --- !u!1 &1943255472
 GameObject:
   m_ObjectHideFlags: 0
@@ -127275,7 +127276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2020868643
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,6 +21,8 @@ TagManager:
   - Fire
   - Water
   - Cyclon
+  - UI_WEAPON
+  - UI_SKILL
   layers:
   - Default
   - TransparentFX

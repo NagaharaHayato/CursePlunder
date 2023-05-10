@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Slime_Act : MonoBehaviour
 {
+    public static Slime_Act instance;
+
     [SerializeField] GameObject     HPBar;  RectTransform  HPBarRect;
 	[SerializeField] GameObject     STBar;  RectTransform  STBarRect;
 
@@ -34,6 +37,19 @@ public class Slime_Act : MonoBehaviour
 
     [SerializeField] float HP_per;
     [SerializeField] float ST_per;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }else{
+            if (UIManager.isWin && this.gameObject == instance.gameObject) Destroy(instance.gameObject);
+            //Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         SlimeAnim = GetComponent<Animator>();           //アニメーターの情報を取得
