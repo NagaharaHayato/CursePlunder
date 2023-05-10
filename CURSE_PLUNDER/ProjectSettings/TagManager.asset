@@ -17,8 +17,10 @@ TagManager:
   - Item
   - Cave2
   - ItemGetter
-  - UI_SKILL
-  - UI_WEAPON
+  - Cave3
+  - Fire
+  - Water
+  - Cyclon
   layers:
   - Default
   - TransparentFX

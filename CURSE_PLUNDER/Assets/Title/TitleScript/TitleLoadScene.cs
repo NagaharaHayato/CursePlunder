@@ -29,4 +29,9 @@ public class TitleLoadScene : MonoBehaviour
         SceneManager.LoadScene("Title");
 
     }
+    public void CregitScene()
+    {
+        SceneManager.LoadScene("Cregit");
+
+    }
 }
