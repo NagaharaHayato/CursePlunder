@@ -16,6 +16,9 @@ TagManager:
   - Sword
   - Item
   - Cave2
+  - ItemGetter
+  - UI_SKILL
+  - UI_WEAPON
   layers:
   - Default
   - TransparentFX

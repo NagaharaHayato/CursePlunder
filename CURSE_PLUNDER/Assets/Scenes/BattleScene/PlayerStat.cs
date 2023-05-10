@@ -10,7 +10,7 @@ public class PlayerStat : MonoBehaviour
     // Start is called before the first frame update
 
     private string PlayerName;
-    private int HP, MaxHP;
+    public static int HP, MaxHP;
     private int ATK, DefaultATK;
     private int DEF, DefaultDEF;
     private int CursePoint;

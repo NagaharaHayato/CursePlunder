@@ -43,7 +43,7 @@ public class PlayerControl : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.D))
 		{
 			ControllMode = !ControllMode;
-			cmdselect_dialog = ControllMode;
+			cmdselect_dialog = !ControllMode;
 		}
 
 
