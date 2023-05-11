@@ -4,29 +4,40 @@ using UnityEngine;
 
 public class Danga : MonoBehaviour
 {
-    public float power = 100f;
-    public GameObject cannonBall;
-    //public Transform spawnPoint;
-    public float interval = 10.0f;
-    //public float deltatime = 2.0f;
-    public static float ENEMY_DIR_RAD = 90.0f;         //éÂêlåˆÇÃå¸Ç´
+    // Start is called before the first frame update
+    [SerializeField] float MOVE_SPEED = 10.0f;
+    Rigidbody2D SwordRB;
+    Vector2 Directions;
+    Vector2 PlayerDir;
+
+    float rad;
 
     void Start()
     {
-       
-        InvokeRepeating("KnifeThrow", 0.1f, interval);
-        Shoot();
+        SwordRB = GetComponent<Rigidbody2D>();
+
+
+        rad = (EnemyDemon.ENEMY_DIR_RAD * Mathf.Deg2Rad) + transform.rotation.z;
     }
 
-    
+    // Update is called once per frame
+    void Update()
+    {
 
-    void Shoot()
-    {
-        GameObject newBullet = Instantiate(cannonBall, transform.position, Quaternion.Euler(0, 0, -ENEMY_DIR_RAD + 90)) as GameObject;
-        newBullet.GetComponent<Rigidbody2D>().AddForce(Vector3.right * power);
+        SwordRB.velocity = new Vector2((Mathf.Cos(rad) * MOVE_SPEED) * UIManage.SpeedAdjust, (-Mathf.Sin(rad) * MOVE_SPEED) * UIManage.SpeedAdjust);
+
+
     }
-    public void KnifeThrow()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i = 0; i < 90; i++) Instantiate(cannonBall, transform.position, Quaternion.Euler(0, 0, i * 8));
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

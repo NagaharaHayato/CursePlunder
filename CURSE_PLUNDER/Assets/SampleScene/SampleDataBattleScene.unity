@@ -7243,10 +7243,9 @@ GameObject:
   - component: {fileID: 8774245377326400888}
   - component: {fileID: 4116312181847758778}
   - component: {fileID: 1591346095694602702}
-  - component: {fileID: 9117314596281361287}
+  - component: {fileID: 8774245377326400889}
   - component: {fileID: 6273138401308197009}
   - component: {fileID: 1737774553242666317}
-  - component: {fileID: 9117314596281361288}
   m_Layer: 0
   m_Name: Slime_Enemy
   m_TagString: Enemy
@@ -7694,7 +7693,7 @@ RectTransform:
   m_AnchoredPosition: {x: 1.481781, y: -67.65059}
   m_SizeDelta: {x: 0.40729, y: 0.33976}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &9117314596281361287
+--- !u!114 &8774245377326400889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7703,32 +7702,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1069268051209457850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 792e99731a5ce6e43afb131255b37b09, type: 3}
+  m_Script: {fileID: 11500000, guid: 413854511a68f13449524ae880ac45a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HPBar: {fileID: 1444101559334607747}
   STBar: {fileID: 2415073698473390959}
+  SpawnObj: {fileID: 3400582607803401358, guid: 1356e0f0df72c4842901d1b0234b72f9, type: 3}
   ExpOrb_Obj: {fileID: 761216886393317385, guid: 9da7f276da6d230499f3f12a9183e102, type: 3}
   DamageView: {fileID: 5403138315800550304, guid: 2b33470ea47244a428c02f1868a6af49, type: 3}
   EnemyData: {fileID: 11400000, guid: 85c5115a7ed187542afe1f481fb4ed0c, type: 2}
   UIDisplayPos: {fileID: 2880500351325927260}
+  t: 5
   HP_per: 0
   ST_per: 0
---- !u!114 &9117314596281361288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069268051209457850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb5a3fc1c05d42489543224fb10ae9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 1000
-  cannonBall: {fileID: 3400582607803401358, guid: 1356e0f0df72c4842901d1b0234b72f9, type: 3}
-  interval: 3
 --- !u!114 &9121836975789040625
 MonoBehaviour:
   m_ObjectHideFlags: 0
