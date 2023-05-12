@@ -48,7 +48,7 @@ ParticleSystem:
   m_GameObject: {fileID: 433484444288291572}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 5
+  simulationSpeed: 10
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -62,7 +62,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0
+    scalar: 1
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -175,7 +175,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -293,7 +293,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -608,7 +608,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    randomizeRotationDirection: 0
+    randomizeRotationDirection: 1
     gravitySource: 0
     maxNumParticles: 5000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
@@ -671,14 +671,14 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 0
-    angle: 25
+    angle: 0
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 2, y: 2, z: 2}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -757,7 +757,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.01
+      value: 1
       mode: 0
       spread: 0
       speed:
@@ -816,7 +816,7 @@ ParticleSystem:
     arc:
       value: 360
       mode: 0
-      spread: 0
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -876,7 +876,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 200
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -992,23 +992,23 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.024810791
+          time: 0
           value: 1
           inSlope: 0
           outSlope: 0
-          tangentMode: 0
+          tangentMode: 34
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 0
-          inSlope: -1.3918363
-          outSlope: -1.3918363
-          tangentMode: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
           weightedMode: 0
-          inWeight: 0.12468156
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -2852,7 +2852,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
+    frequency: 6
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5
@@ -2861,7 +2861,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 22
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4866,7 +4866,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.43803203, y: 1.0306146}
+  m_Offset: {x: 6.543961, y: -0.0418725}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4877,5 +4877,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.407654, y: 5.734691}
+  m_Size: {x: 14.028756, y: 6.077896}
   m_EdgeRadius: 0
