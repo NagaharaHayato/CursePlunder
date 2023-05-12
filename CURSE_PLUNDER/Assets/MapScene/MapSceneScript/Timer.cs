@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
 
     public static int countdownMinu = 30;
     //public static int countdownMinu = 1;
-    private static float countdownSecound = countdownMinu * 60;
+    public static float countdownSecound = countdownMinu * 60;
     //　トータル制限時間
     private Text timeText;
 

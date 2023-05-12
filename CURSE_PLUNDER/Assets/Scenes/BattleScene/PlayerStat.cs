@@ -13,7 +13,7 @@ public class PlayerStat : MonoBehaviour
     public static int HP, MaxHP;
     private int ATK, DefaultATK;
     private int DEF, DefaultDEF;
-    private static int CursePoint;
+    public static int CursePoint;
     private float HP_Percentage;
 
     public static int GotCursePoint = 0;
@@ -63,7 +63,7 @@ public class PlayerStat : MonoBehaviour
         GetCursedPointUI.text = GotCursePoint.ToString();
 
         //保持しているカースポイントが最大体力以下の場合は黄色に、ゼロの場合は赤色
-        if (CursePoint <= MaxHP){
+        if (CursePoint <= MaxHP && CursePoint > 0){
             CursePoint_String.color = Color.yellow;
         }else if (CursePoint <= 0){
             CursePoint_String.color = Color.red;
@@ -102,7 +102,11 @@ public class PlayerStat : MonoBehaviour
             HP = MaxHP;
         }else{
             //残りカースポイントを引いた最大体力分をカウントから減らす
-            
+            float RestSecond = Timer.countdownSecound;
+
+			Timer.countdownSecound -= MaxHP - CursePoint;
+
+            CursePoint = 0;
         }
     }
 }

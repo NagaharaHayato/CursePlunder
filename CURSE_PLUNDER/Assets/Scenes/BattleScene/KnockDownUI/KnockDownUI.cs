@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,7 @@ public class KnockDownUI : MonoBehaviour
     public static bool KDUI_Control = false;
 
     [SerializeField] GameObject[] Selector = new GameObject[2];
+    [SerializeField] TextMeshProUGUI InfomationText;
     private int SelectCursol = 0;
 
     void Start()
@@ -42,7 +45,26 @@ public class KnockDownUI : MonoBehaviour
                 }
             }
 
-            
+            switch (SelectCursol) {
+                case 0:
+                    if (PlayerStat.CursePoint >= PlayerStat.MaxHP){
+                        //カースポイントが最大HPよりも多い場合
+                        InfomationText.text = "保持しているポイント(残り" + PlayerStat.CursePoint + "Pt)を"+ PlayerStat.MaxHP + "Pt消費して復活";
+
+                    }else if(PlayerStat.CursePoint < PlayerStat.MaxHP && Timer.countdownSecound > (PlayerStat.MaxHP - PlayerStat.CursePoint)){
+                        //カースポイントが最大HPよりも少なく、残り時間が（最大体力とカースポイントの差分）以上ある場合
+                        InfomationText.text = "保持しているポイント(" + PlayerStat.CursePoint + "Pt)と、残り時間の" + (PlayerStat.MaxHP - PlayerStat.CursePoint).ToString() + "秒を消費して復活";
+
+					}else if(PlayerStat.CursePoint <= 0 && Timer.countdownSecound > PlayerStat.MaxHP){
+                        //カースポイントが無く、残り時間だけがある場合
+                        InfomationText.text = "残り時間(" + Timer.countdownSecound + "秒)から" + PlayerStat.MaxHP + "秒を消費して復活";
+					}
+                    break;
+                case 1:
+                    InfomationText.text = "戦闘を諦めます";
+                    break;
+            }
+
         }
     }
 
