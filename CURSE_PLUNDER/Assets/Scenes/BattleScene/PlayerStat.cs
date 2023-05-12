@@ -13,7 +13,7 @@ public class PlayerStat : MonoBehaviour
     public static int HP, MaxHP;
     private int ATK, DefaultATK;
     private int DEF, DefaultDEF;
-    private int CursePoint;
+    private static int CursePoint;
     private float HP_Percentage;
 
     public static int GotCursePoint = 0;
@@ -61,10 +61,48 @@ public class PlayerStat : MonoBehaviour
 
         //獲得した呪いポイントを反映
         GetCursedPointUI.text = GotCursePoint.ToString();
+
+        //保持しているカースポイントが最大体力以下の場合は黄色に、ゼロの場合は赤色
+        if (CursePoint <= MaxHP){
+            CursePoint_String.color = Color.yellow;
+        }else if (CursePoint <= 0){
+            CursePoint_String.color = Color.red;
+        }else{
+            CursePoint_String.color = Color.white;
+        }
     }
 
     public static void AddCursePoint(int cursepoint)
     {
         GotCursePoint += cursepoint;
+    }
+
+    public static void GiveDamage(int damage)
+    {
+        if (HP > damage)
+        {
+            //残りHPよりダメージ量の方が少ない場合はそのまま引く
+            HP -= damage;
+        }else if (HP < damage)
+        {
+            //残りHPよりダメージ量の方が多ければ強制的にゼロに
+            HP = 0;
+        }
+    }
+
+    public static void Revive()
+    {
+      //保持している呪力が最大体力よりあるか
+      if (CursePoint >= MaxHP)
+        {
+            //保持している分から最大体力分減らす
+            CursePoint -= MaxHP;
+
+            //完全に回復させる
+            HP = MaxHP;
+        }else{
+            //残りカースポイントを引いた最大体力分をカウントから減らす
+            
+        }
     }
 }
