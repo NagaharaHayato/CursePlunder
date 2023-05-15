@@ -328,8 +328,10 @@ GameObject:
   - component: {fileID: 1099428300}
   - component: {fileID: 1099428302}
   - component: {fileID: 1099428301}
+  - component: {fileID: 1099428303}
+  - component: {fileID: 1099428304}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DevelopStaff_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -335.6366}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1600, y: 228.7268}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099428301
@@ -375,7 +377,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "\"Curse Plunder\" \u30AB\u30FC\u30B9\u30D7\u30E9\u30F3\u30C0\u30FC\n<size=65>STAFF</size>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 470a54548a455be43991ab758b101574, type: 2}
   m_sharedMaterial: {fileID: 2707711155336309525, guid: 470a54548a455be43991ab758b101574, type: 2}
@@ -414,7 +416,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 100
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -452,6 +454,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099428299}
   m_CullTransparentMesh: 1
+--- !u!95 &1099428303
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099428299}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1922a090589c67c499e0fdc3d0523e21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1099428304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099428299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc3c5e5195ffa24186ee7a0d90412d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StaffRoll_Text: {fileID: 1099428301}
 --- !u!1 &2083652137
 GameObject:
   m_ObjectHideFlags: 0
