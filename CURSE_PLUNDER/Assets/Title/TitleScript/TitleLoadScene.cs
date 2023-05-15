@@ -9,6 +9,17 @@ public class TitleLoadScene : MonoBehaviour
     //ƒ{ƒ^ƒ“ˆÚ“®
 
     public InputField inputField;
+
+    public void CheckTextCount()
+    {
+        Debug.Log(inputField.text.Length);
+
+        if (inputField.text.Length > 10)
+        {
+            inputField.text = inputField.text[..10];
+        }
+    }
+
     public void LoadNewScene()
     {
 

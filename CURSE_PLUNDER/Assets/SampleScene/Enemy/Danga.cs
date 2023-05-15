@@ -12,6 +12,8 @@ public class Danga : MonoBehaviour
 
     float rad;
 
+    public float deltaTime = 2.0f;
+
     void Start()
     {
         SwordRB = GetComponent<Rigidbody2D>();
@@ -30,6 +32,7 @@ public class Danga : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
@@ -39,5 +42,9 @@ public class Danga : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        
+
+            Destroy(this.gameObject,deltaTime);
+        
     }
 }
