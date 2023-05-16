@@ -1,0 +1,4 @@
+﻿"CursePlunder" カースプランダー<br><size=65>STAFF</size>
+プログラマー<br><size=65>Nagahara Hayato<br>Oketani Kouki</size>
+パーティクルデザイン<br><size=65>Oketani Kouki</size>
+UIデザイン<br><size=65>Nagahara Hayato</size>

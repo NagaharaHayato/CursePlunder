@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StaffRoll_Text: {fileID: 1099428301}
+  texts: {fileID: 4900000, guid: 6a171123879080848a1d9bdf712a37dd, type: 3}
 --- !u!1 &2083652137
 GameObject:
   m_ObjectHideFlags: 0

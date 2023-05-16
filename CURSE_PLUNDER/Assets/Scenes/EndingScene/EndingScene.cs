@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndingScene : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI StaffRoll_Text;
+    [SerializeField] TextAsset texts;
     Animator anim;
 
-    public string[] StaffRolls;
+    string[] StaffRolls;
 
     float NextBorderTime = 1.0f;
     int StaffRoll_phase = 0;
     int RowLength = 0;
 
-    bool Waiting = false;
 
-    private void Awake()
+    void Awake()
     {
-        TextAsset TAsset = new TextAsset();
-        TAsset = Resources.Load("StaffRoll_data", typeof(TextAsset)) as TextAsset;
-        string TextLines = TAsset.text;
+        
+        string TextLines = texts.text;
 
         StaffRolls = TextLines.Split("\n");
-        RowLength = StaffRolls.Length;
+        RowLength = StaffRolls.Length - 1;
     }
 
     void Start()
@@ -52,8 +52,8 @@ public class EndingScene : MonoBehaviour
         if (RowLength > StaffRoll_phase)
         {
             StaffRoll_Text.text = StaffRolls[StaffRoll_phase];
-        }else{
-            this.gameObject.SetActive(false);
+        }else if (RowLength <= StaffRoll_phase){
+            SceneManager.LoadScene("Title");
         }
 
 
