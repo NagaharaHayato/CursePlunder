@@ -6,10 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class PlayerClider : MonoBehaviour
 {
-
-    // Start is called before the first frame update
- void OnTriggerEnter2D(Collider2D collision)
+    void Awake()
     {
+        if(UIManager.HitEnemyObj != null)
+        {
+            Destroy(UIManager.HitEnemyObj);
+            UIManager.HitEnemyObj = null;
+
+        } 
+    }
+    // Start is called before the first frame update
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+
+
         if (collision.gameObject.CompareTag("Out"))
         {
             
@@ -50,6 +60,8 @@ public class PlayerClider : MonoBehaviour
 
         }
 
+        
+
 
     }
 
@@ -57,9 +69,13 @@ public class PlayerClider : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            UIManager.HitEnemyObj = collision.gameObject;
             SceneManager.LoadScene("BattleScene");
+        }
 
-
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            SceneManager.LoadScene("BossFight");
         }
     }
 

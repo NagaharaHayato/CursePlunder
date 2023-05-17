@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class UIManager : MonoBehaviour
     Animator BDF_Animator;
 
     public static bool isWin = false;
+    public static int ControlMode = 0;
+    public static float SpeedAdjust = 1.0f;
+    public static GameObject HitEnemyObj;
+
     void Start()
     {
         BDF_Animator = BossDefeat_Fade.GetComponent<Animator>();   
@@ -26,6 +31,11 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ((GameObject.FindGameObjectsWithTag("Enemy").Length) <= 0)
+        {
+            VictoryUI.SetActive(true);
+        }
+
         if (BossUroboros.BossHP > 0) Timer.countdownSecound -= Time.deltaTime;
         if (BossUroboros.BossHP <= 0) BossDefeat_Fade.SetActive(true);
         
@@ -40,5 +50,15 @@ public class UIManager : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("ClearScene");
         }
+
+        //if ((GameObject.FindGameObjectsWithTag("Enemy").Length) <= 0)
+        //{
+        //    VictoryUI.SetActive(true);
+        //    if (VictoryUI.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f && Input.GetKeyDown(KeyCode.F))
+        //    {
+        //        UnityEngine.SceneManagement.SceneManager.LoadScene("CaveScene");
+        //    }
+        //}
+
     }
 }

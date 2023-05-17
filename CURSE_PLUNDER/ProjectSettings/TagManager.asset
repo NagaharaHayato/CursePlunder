@@ -23,6 +23,7 @@ TagManager:
   - Cyclon
   - UI_WEAPON
   - UI_SKILL
+  - Boss
   layers:
   - Default
   - TransparentFX

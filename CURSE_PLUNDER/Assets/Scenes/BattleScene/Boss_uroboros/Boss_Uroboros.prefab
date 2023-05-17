@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 2342781380824962617}
   m_Layer: 0
   m_Name: Boss_Uroboros
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,8 +251,6 @@ MonoBehaviour:
   BossHPbar: {fileID: 9119040996412622809}
   ExpOrb_Obj: {fileID: 761216886393317385, guid: 9da7f276da6d230499f3f12a9183e102, type: 3}
   DamageView: {fileID: 5403138315800550304, guid: 2b33470ea47244a428c02f1868a6af49, type: 3}
-  BossHP: 1000
-  HP_per: 0
 --- !u!1 &9119040996412622809
 GameObject:
   m_ObjectHideFlags: 0
