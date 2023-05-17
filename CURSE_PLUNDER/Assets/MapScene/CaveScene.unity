@@ -2611,6 +2611,7 @@ MonoBehaviour:
   Selector:
   - {fileID: 2090764593}
   - {fileID: 1979503514}
+  InfomationText: {fileID: 0}
 --- !u!1 &467263489
 GameObject:
   m_ObjectHideFlags: 0
@@ -127276,7 +127277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2020868643
 MonoBehaviour:
   m_ObjectHideFlags: 0

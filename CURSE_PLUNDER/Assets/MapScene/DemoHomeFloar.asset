@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DemoHomeFloar
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 25f0a255eaec53846b521639187d6321, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5154879, g: 0.9056604, b: 0.47419012, a: 1}
   m_Transform:
     e00: 1
     e01: 0
