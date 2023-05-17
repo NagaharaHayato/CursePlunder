@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 93410043}
+  - component: {fileID: 93410044}
   m_Layer: 5
   m_Name: BossDefeat_Animation
   m_TagString: Untagged
@@ -160,6 +161,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000061035, y: 0}
   m_SizeDelta: {x: 1600, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &93410044
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93410042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c48253853edd44349aaaac2e51fc28a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &236746869
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +343,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2049694028}
     m_Modifications:
+    - target: {fileID: 2342781380824962617, guid: cdfbaaf9a136de1409b211bf5425ee3f, type: 3}
+      propertyPath: BossHPbar
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6371945411102773625, guid: cdfbaaf9a136de1409b211bf5425ee3f, type: 3}
       propertyPath: m_Name
       value: Boss_Uroboros
@@ -944,7 +970,6 @@ GameObject:
   - component: {fileID: 1771340180}
   - component: {fileID: 1771340183}
   - component: {fileID: 1771340182}
-  - component: {fileID: 1771340181}
   m_Layer: 5
   m_Name: BDA_WriteFade
   m_TagString: Untagged
@@ -972,27 +997,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1771340181
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771340179}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c3553c204da07924ab85279fe6865c48, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1771340182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7649,7 +7653,6 @@ MonoBehaviour:
   TimeLimitUI: {fileID: 3218146471249814653}
   BossDefeat_Fade: {fileID: 93410042}
   TimeCount: {fileID: 4465578173434190010}
-  BDF_Animator: {fileID: 0}
 --- !u!1 &8010609547563821627
 GameObject:
   m_ObjectHideFlags: 0
