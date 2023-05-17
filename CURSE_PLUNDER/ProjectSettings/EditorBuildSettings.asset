@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndingScene/ClearScene.unity
     guid: 961fc81ae8f20014f9a8512636dcb1b9
+  - enabled: 1
+    path: Assets/Scenes/BossFight/BossFight.unity
+    guid: 51185cec68eeac943b01058a9562f9ac
   m_configObjects: {}
