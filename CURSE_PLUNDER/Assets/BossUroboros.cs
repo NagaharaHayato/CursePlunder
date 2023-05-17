@@ -15,9 +15,10 @@ public class BossUroboros : MonoBehaviour
     GameObject TargetObj;
     GameObject UIcanvas;
     Animator BossAnim;
-    [SerializeField] public int BossHP = 100;
-    [SerializeField] float HP_per;
-    int BossMaxHP;
+    public static int BossHP = 100;
+    public static int BossMaxHP;
+    private float HP_per;
+   
     
 
     void Start()
@@ -32,8 +33,6 @@ public class BossUroboros : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HP_per = (float)BossHP / (float)BossMaxHP;
-        BossHPbar.GetComponent<RectTransform>().anchorMax = new Vector2((0.5f * HP_per), BossHPbar.GetComponent<RectTransform>().anchorMax.y);
 
         BossAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
     }
