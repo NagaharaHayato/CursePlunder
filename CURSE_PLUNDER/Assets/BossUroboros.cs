@@ -18,6 +18,8 @@ public class BossUroboros : MonoBehaviour
     public static int BossHP = 100;
     public static int BossMaxHP;
     private float HP_per;
+
+    private Vector3 targetpos;
    
     
 
@@ -27,13 +29,15 @@ public class BossUroboros : MonoBehaviour
         UIcanvas = GameObject.Find("UI");
         BossAnim = GetComponent<Animator>();
 
+        targetpos = transform.position;
+
         BossMaxHP = BossHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        transform.position = new Vector3(Mathf.Sin(Time.time) * 10.0f + targetpos.x, targetpos.y, targetpos.z);
         BossAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
     }
 
