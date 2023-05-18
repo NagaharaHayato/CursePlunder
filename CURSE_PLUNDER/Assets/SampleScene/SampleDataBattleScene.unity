@@ -2716,12 +2716,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a058862e0ee50564989c5b0007959621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj:
-  - {fileID: 2931894764687582812, guid: ea9aa1d5dfd382644847af3e34878e3a, type: 3}
-  - {fileID: 1717726791360388969, guid: adea83f9389175842ad348c9f8977395, type: 3}
-  - {fileID: 5519979956323581698, guid: 46aa084e2ddcca940b19d3d2f2af35fb, type: 3}
-  interval: 3
-  time: 0
+  createPrefab: {fileID: 0}
+  rangeA: {fileID: 0}
+  rangeB: {fileID: 0}
 --- !u!1 &802379714
 GameObject:
   m_ObjectHideFlags: 0
