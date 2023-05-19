@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spaun : MonoBehaviour
@@ -21,4 +22,8 @@ public class Spaun : MonoBehaviour
         Instantiate(obj[number], transform.position, transform.rotation);
     }
 
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+        
+	}
 }

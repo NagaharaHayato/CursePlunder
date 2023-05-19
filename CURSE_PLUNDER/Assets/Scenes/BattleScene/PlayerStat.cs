@@ -30,10 +30,10 @@ public class PlayerStat : MonoBehaviour
     {
         PlayerName_String.text = PlayerPrefs.GetString("PlayerName");
 
-        HP = PlayerPrefs.GetInt("HitPoint");
+        HP = PlayerPrefs.GetInt("HP");
         MaxHP = PlayerPrefs.GetInt("MaxHP");
 
-        HP_String.text      = PlayerPrefs.GetInt("HitPoint").ToString();
+        HP_String.text      = PlayerPrefs.GetInt("HP").ToString();
         MaxHP_String.text   = PlayerPrefs.GetInt("MaxHP").ToString();
         
         ATK         = PlayerPrefs.GetInt("Attack");

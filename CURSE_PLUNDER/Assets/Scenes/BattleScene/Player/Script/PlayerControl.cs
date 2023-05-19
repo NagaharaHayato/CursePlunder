@@ -110,6 +110,12 @@ public class PlayerControl : MonoBehaviour
 		{
 			if (Slime_Act.IsAttack) PlayerStat.GiveDamage(50);
 			Slime_Act.IsAttack = false;
+		}else if (collision.gameObject.CompareTag("EnemyFire")){
+			PlayerStat.GiveDamage(50);
+		}else if (collision.gameObject.CompareTag("EnemyCyclon")){
+			PlayerStat.GiveDamage(50);
+		}else if (collision.gameObject.CompareTag("EnemyWater")){
+			PlayerStat.GiveDamage(50);
 		}
 	}
 }

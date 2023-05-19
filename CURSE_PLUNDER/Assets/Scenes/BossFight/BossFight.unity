@@ -3929,7 +3929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083c2a141f0831f42824a589a207b102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossHPbar: {fileID: 0}
+  BossHPbar: {fileID: 2106332272}
   ExpOrb_Obj: {fileID: 761216886393317385, guid: 9da7f276da6d230499f3f12a9183e102, type: 3}
   DamageView: {fileID: 5403138315800550304, guid: 2b33470ea47244a428c02f1868a6af49, type: 3}
 --- !u!114 &2370639599533451126
