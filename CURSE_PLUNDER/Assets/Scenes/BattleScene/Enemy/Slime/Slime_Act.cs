@@ -16,10 +16,14 @@ public class Slime_Act : MonoBehaviour
     [SerializeField] GameObject DamageView;
     [SerializeField] EnemyDataBase EnemyData;
     [SerializeField] GameObject UIDisplayPos;
+
+    [SerializeField] TextMeshProUGUI DistanceCheck;
     GameObject TargetObj;
     GameObject UIcanvas;
 
-    [SerializeField]Collider2D AttackPhase_Circle;
+    CircleCollider2D Searching_Hit;
+
+    [SerializeField] private Collider2D AttackPhase_Circle;
     
     Vector2         TargetPos;                          //追跡するターゲットの座標が入る
     Vector2         SlimePos;                           //自分自身の座標
@@ -54,6 +58,7 @@ public class Slime_Act : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }else{
             if (UIManager.isWin && this.gameObject == instance.gameObject) Destroy(instance.gameObject);
+            
             //Destroy(gameObject);
         }
     }
@@ -73,6 +78,8 @@ public class Slime_Act : MonoBehaviour
         
         HPBarRect = HPBar.GetComponent<RectTransform>();
         STBarRect = STBar.GetComponent<RectTransform>();
+
+        Searching_Hit = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -89,13 +96,18 @@ public class Slime_Act : MonoBehaviour
             STBar.GetComponent<RectTransform>().anchorMax = new Vector2(-0.5f + (0.5f * ST_per) * 2, STBarRect.anchorMax.y);
         }
 
-        //移動関連処理
-        if (!IsSwoon){
+        
+
+		//移動関連処理
+		if (!IsSwoon){
             if (!IsAttack)
             {
+				//ある一定以上、プレイヤーが近づいたら攻撃を行う
+				if (Vector2.Distance(this.gameObject.transform.position, TargetObj.transform.position) < 5.0f) AttackLaunch();
+                DistanceCheck.text = Vector2.Distance(this.gameObject.transform.position, TargetObj.transform.position).ToString();
 
-                //追跡するオブジェクトの座標情報を更新
-                TargetPos = TargetObj.GetComponent<Transform>().position;
+				//追跡するオブジェクトの座標情報を更新
+				TargetPos = TargetObj.GetComponent<Transform>().position;
 
                 //追跡するオブジェクトとスライムの２点間の角度を求める
                 Vector2 vector = new Vector2(transform.position.x - TargetPos.x, transform.position.y - TargetPos.y);
@@ -172,8 +184,8 @@ public class Slime_Act : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
         if (collision.gameObject.CompareTag("Sword"))
         {
             //ナイフが当たったらHPもしくはSTを減らす
@@ -194,17 +206,16 @@ public class Slime_Act : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
 
-        if (!IsAttack && collision.gameObject.CompareTag("Player"))
-		{
-            if (AttackInverval <= 0.0f)
-            {
-                IsAttack = true;
-                AttackTime = 50.0f;
-                Vector2 Distance = TargetObj.transform.position - this.transform.position;
-                AttackDegree = Mathf.Atan2(Distance.y, Distance.x) * Mathf.Rad2Deg;
-            }
-		}
-
+    public void AttackLaunch()
+    {
+        if (AttackInverval <= 0.0f)
+        {
+            IsAttack = true;
+            AttackTime = 50.0f;
+            Vector2 Distance = TargetObj.transform.position - this.transform.position;
+            AttackDegree = Mathf.Atan2(Distance.y, Distance.x) * Mathf.Rad2Deg;
+        }
     }
 }
