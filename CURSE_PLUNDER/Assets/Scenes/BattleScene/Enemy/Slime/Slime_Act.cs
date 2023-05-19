@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Slime_Act : MonoBehaviour
 {
@@ -30,7 +31,12 @@ public class Slime_Act : MonoBehaviour
     private int     direction       = 0;                //アニメーターに向いている方向を教える為の変数
     private int     SwoonTime       = 0;                //気絶の残り時間
     private bool    IsSwoon         = false;            //気絶状態フラグ
+    public static bool    IsAttack        = false;
+    private float   AttackDegree    = 0.0f;
+    private float   AttackTime      = 0.0f;
     private float   rad             = 0;                //角度
+
+
 
     Rigidbody2D     SlimeRB;                            //この敵のリジッドボディ
     Animator        SlimeAnim;                           //この敵のアニメーター
@@ -83,40 +89,63 @@ public class Slime_Act : MonoBehaviour
 
         //移動関連処理
         if (!IsSwoon){
-            //追跡するオブジェクトの座標情報を更新
-            TargetPos = TargetObj.GetComponent<Transform>().position;
-
-            //追跡するオブジェクトとスライムの２点間の角度を求める
-            Vector2 vector = new Vector2(transform.position.x - TargetPos.x, transform.position.y - TargetPos.y);
-            rad = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
-
-            //角度を「-180～180度」から「0～360度」に変換
-            if (rad <= 0.0f) { rad = Mathf.Abs(rad); } else { rad = 360.0f - Mathf.Abs(rad); }
-
-
-            //追跡するオブジェクトがいる方向へ向く
-            direction = 1;
-            if (rad >= 337.5 || (rad >= 0.0f && rad <= 22.5f))
+            if (!IsAttack)
             {
-                
-            }
-            else
-            {
-                for (float r = 22.5f; r <= 315.0f; r += 45.0f)
+
+                //追跡するオブジェクトの座標情報を更新
+                TargetPos = TargetObj.GetComponent<Transform>().position;
+
+                //追跡するオブジェクトとスライムの２点間の角度を求める
+                Vector2 vector = new Vector2(transform.position.x - TargetPos.x, transform.position.y - TargetPos.y);
+                rad = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+
+                //角度を「-180～180度」から「0～360度」に変換
+                if (rad <= 0.0f) { rad = Mathf.Abs(rad); } else { rad = 360.0f - Mathf.Abs(rad); }
+
+
+                //追跡するオブジェクトがいる方向へ向く
+                direction = 1;
+                if (rad >= 337.5 || (rad >= 0.0f && rad <= 22.5f))
                 {
-                    direction++;
-                    if (rad >= r && rad <= r + 45.0f) break;
+
                 }
-            }
-            //アニメーターに方向の値を渡す
-            SlimeAnim.SetFloat("Direction", (float)direction);
+                else
+                {
+                    for (float r = 22.5f; r <= 315.0f; r += 45.0f)
+                    {
+                        direction++;
+                        if (rad >= r && rad <= r + 45.0f) break;
+                    }
+                }
+                //アニメーターに方向の値を渡す
+                SlimeAnim.SetFloat("Direction", (float)direction);
 
-            //ターゲットのオブジェクトを追いかけるように移動
+                //ターゲットのオブジェクトを追いかけるように移動
 
-            transform.position = Vector2.MoveTowards(transform.position, TargetPos, (MOVE_SPEED * Time.deltaTime) * UIManage.SpeedAdjust);
-            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+                transform.position = Vector2.MoveTowards(transform.position, TargetPos, (MOVE_SPEED * Time.deltaTime) * UIManage.SpeedAdjust);
+                transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
-            SlimeAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
+                SlimeAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
+			}
+			else
+			{
+
+                AttackTime -= 1.0f;
+                if (AttackTime <= 0.0f)
+                {
+                    IsAttack = false;
+                    MOVE_SPEED = EnemyData.MOVE_SPEED;
+                }
+                else
+                {
+                    MOVE_SPEED += 0.5f;
+
+                    float Force_X = Mathf.Cos(AttackDegree * Mathf.Deg2Rad);
+                    float Force_Y = Mathf.Sin(AttackDegree * Mathf.Deg2Rad);
+
+                    SlimeRB.velocity = new Vector2(Force_X * MOVE_SPEED, Force_Y * MOVE_SPEED);
+                }
+			}
         }
 
         //気絶時の処理
@@ -157,5 +186,15 @@ public class Slime_Act : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+
+        if (!IsAttack && collision.gameObject.CompareTag("Player"))
+		{
+            IsAttack = true;
+            AttackTime = 10.0f;
+            Vector2 Distance = TargetObj.transform.position - this.transform.position;
+            AttackDegree = Mathf.Atan2(Distance.y, Distance.x) * Mathf.Rad2Deg;
+           
+		}
+
     }
 }

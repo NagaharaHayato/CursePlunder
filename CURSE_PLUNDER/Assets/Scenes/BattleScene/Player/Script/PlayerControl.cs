@@ -103,4 +103,13 @@ public class PlayerControl : MonoBehaviour
 	{
 		for(int i = 0; i < 90; i++) Instantiate(FreeStyleSword, transform.position, Quaternion.Euler(0, 0,i*8));
     }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Enemy"))
+		{
+			if (Slime_Act.IsAttack) PlayerStat.GiveDamage(50);
+			Slime_Act.IsAttack = false;
+		}
+	}
 }

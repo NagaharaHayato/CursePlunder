@@ -24,6 +24,7 @@ TagManager:
   - UI_WEAPON
   - UI_SKILL
   - Boss
+  - Slime_ATK_HitBox
   layers:
   - Default
   - TransparentFX

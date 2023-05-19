@@ -30,23 +30,25 @@ public class PlayerStat : MonoBehaviour
     {
         PlayerName_String.text = PlayerPrefs.GetString("PlayerName");
 
-        HP = PlayerPrefs.GetInt("HP");
+        HP = PlayerPrefs.GetInt("HitPoint");
         MaxHP = PlayerPrefs.GetInt("MaxHP");
 
-        HP_String.text      = PlayerPrefs.GetInt("HP").ToString();
+        HP_String.text      = PlayerPrefs.GetInt("HitPoint").ToString();
         MaxHP_String.text   = PlayerPrefs.GetInt("MaxHP").ToString();
         
-        ATK         = PlayerPrefs.GetInt("ATK");
-        DefaultATK  = PlayerPrefs.GetInt("DefaultATK");
+        ATK         = PlayerPrefs.GetInt("Attack");
+        DefaultATK  = PlayerPrefs.GetInt("MaxAttack");
 
-        DEF         = PlayerPrefs.GetInt("DEF");
-        DefaultDEF  = PlayerPrefs.GetInt("DefaultDEF");
+        DEF         = PlayerPrefs.GetInt("Defence");
+        DefaultDEF  = PlayerPrefs.GetInt("MaxDefence");
 
         CursePoint  = PlayerPrefs.GetInt("CursePoint");
         CursePoint_String.text = CursePoint.ToString();
 
         HP_Percentage = (float)HP / (float)MaxHP;
     }
+
+
     void Start()
     {
         
@@ -58,6 +60,8 @@ public class PlayerStat : MonoBehaviour
         //HPバーの更新
         HP_Percentage = (float)HP / (float)MaxHP;
         HP_Bar.GetComponent<RectTransform>().anchorMax = new Vector2(HP_Percentage, 1);
+
+        HP_String.text = HP.ToString();
 
         //獲得した呪いポイントを反映
         GetCursedPointUI.text = GotCursePoint.ToString();
