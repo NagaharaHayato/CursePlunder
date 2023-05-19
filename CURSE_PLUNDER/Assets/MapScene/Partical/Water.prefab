@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8033813925424839359}
   - component: {fileID: 7016399528689631240}
   - component: {fileID: 18639677210904235}
+  - component: {fileID: 7787493629986438556}
+  - component: {fileID: 1637838774314532677}
   m_Layer: 0
   m_Name: Water
   m_TagString: Water
@@ -4879,3 +4881,43 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.407654, y: 5.734691}
   m_EdgeRadius: 0
+--- !u!50 &7787493629986438556
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433484444288291572}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1637838774314532677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433484444288291572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaebb3ca24ad084794751941f256c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MOVE_SPEED: 10
