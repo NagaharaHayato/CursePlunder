@@ -130,6 +130,8 @@ public class Slime_Act : MonoBehaviour
                 SlimeAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
 
                 if (AttackInverval >= 0.0f) AttackInverval -= 1.0f;
+
+                
 			}
 			else
 			{

@@ -10,6 +10,7 @@ public class KnockDownUI : MonoBehaviour
     Animator animator; AnimatorStateInfo state;
     public static bool KDUI_Control = false;
 
+    [SerializeField] GameObject PlayerObj;
     [SerializeField] GameObject[] Selector = new GameObject[2];
     [SerializeField] TextMeshProUGUI InfomationText;
     private int SelectCursol = 0;
@@ -63,6 +64,26 @@ public class KnockDownUI : MonoBehaviour
                 case 1:
                     InfomationText.text = "戦闘を諦めます";
                     break;
+            }
+
+            //決定キーが押されたら選択に応じて処理を実行
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                switch (SelectCursol) {
+                    case 0:     //REVIVEを選択した場合
+                        PlayerObj.SetActive(true);
+						PlayerControl.Invisible = true;
+                        PlayerControl.InvisibleTime = 100.0f;
+                        PlayerStat.Revive();
+
+                        //最後にこのUIを閉じる
+                        this.gameObject.SetActive(false);
+                        break;
+                    case 1:     //RETIREを選択した場合
+
+                        break;
+                }
+
             }
 
         }

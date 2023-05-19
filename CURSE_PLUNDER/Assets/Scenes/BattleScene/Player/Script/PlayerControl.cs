@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 
 #pragma warning disable CS0618
 
@@ -20,9 +21,15 @@ public class PlayerControl : MonoBehaviour
 	[SerializeField] private float MOVE_SPEED = 6.0f;  //主人公の移動速度
 	public static float PLAYER_DIR_RAD = 90.0f;         //主人公の向き
 
-	public static bool cmdselect_dialog = false;
-	public static int ControlMode = 0;
+	public static bool  cmdselect_dialog   = false;					//コマンドセレクト中かどうかのフラグ
+	public static bool  Invisible          = false;		            //無敵フラグ（ノックダウンから復活後に敵からダメージを受けるのを防ぐ）
+	public static int   InvisibleBlink     = 1; 					//無敵状態時にプレイヤーキャラを点滅させる用
+	public static float Invisible_Interval = 0;						//無敵状態時の点滅アニメーション用
+	public static float InvisibleTime      = 0;						//無敵時間
 	
+	public static int ControlMode = 0;
+
+	private static int Damage_Color = 255;
 	
 	void Start()
 	{
@@ -38,6 +45,10 @@ public class PlayerControl : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		//
+		if (Damage_Color <= 255) Damage_Color += 15;
+		gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, (float)Damage_Color / 255, (float)Damage_Color / 255, InvisibleBlink );
+
 		switch (ControlMode) {
 			case 0:
 				moveact = Vector2.zero;
@@ -89,6 +100,27 @@ public class PlayerControl : MonoBehaviour
 				break;
 		}
 
+		//無敵状態の場合
+		if (Invisible)
+		{
+			InvisibleTime -= 1.0f;
+			Invisible_Interval += Time.deltaTime;
+
+			//点滅インターバルが0.2fを超えた場合
+			if (Invisible_Interval >= 0.01f)
+			{
+				if (InvisibleBlink == 0) InvisibleBlink = 1; else InvisibleBlink = 0;
+				Invisible_Interval = 0.0f;
+			}
+
+			if (InvisibleTime <= 0.0f){
+				InvisibleBlink = 1;
+				Invisible = false;
+			}
+		}
+
+		//HPがゼロになったら行動不可に
+		if (PlayerStat.HP <= 0) this.gameObject.SetActive(false);
 	}
 
 	private void DirectionChange(Vector2 vec)
@@ -106,16 +138,30 @@ public class PlayerControl : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.gameObject.CompareTag("Enemy"))
+		if (!Invisible && collision.gameObject.CompareTag("Enemy"))
 		{
 			if (Slime_Act.IsAttack) PlayerStat.GiveDamage(50);
 			Slime_Act.IsAttack = false;
-		}else if (collision.gameObject.CompareTag("EnemyFire")){
+		}
+		else if (collision.gameObject.CompareTag("EnemyFire")){
 			PlayerStat.GiveDamage(50);
-		}else if (collision.gameObject.CompareTag("EnemyCyclon")){
+		}
+		else if (collision.gameObject.CompareTag("EnemyCyclon")){
 			PlayerStat.GiveDamage(50);
-		}else if (collision.gameObject.CompareTag("EnemyWater")){
+		}
+		else if (collision.gameObject.CompareTag("EnemyWater")){
 			PlayerStat.GiveDamage(50);
+		}
+	}
+
+	public static void DamageColorZero() { Damage_Color = 0; }
+	public static void Invisibled()
+	{
+		//既に無敵状態の場合は無敵状態にならない
+		if (!Invisible)
+		{
+			Invisible = true;
+			InvisibleTime = 30.0f;
 		}
 	}
 }

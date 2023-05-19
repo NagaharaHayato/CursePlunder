@@ -65,6 +65,7 @@ public class PlayerStat : MonoBehaviour
 
         //獲得した呪いポイントを反映
         GetCursedPointUI.text = GotCursePoint.ToString();
+        CursePoint_String.text = CursePoint.ToString();
 
         //保持しているカースポイントが最大体力以下の場合は黄色に、ゼロの場合は赤色
         if (CursePoint <= MaxHP && CursePoint > 0){
@@ -83,11 +84,17 @@ public class PlayerStat : MonoBehaviour
 
     public static void GiveDamage(int damage)
     {
+        //ダメージを受けたときにプレイヤーのスプライト色を「赤色要素」のみにする
+        PlayerControl.DamageColorZero();
+
+        //ダメージを受けたあと、連続でダメージを受けないように一定時間無敵に
+        PlayerControl.Invisibled();
+
         if (HP > damage)
         {
             //残りHPよりダメージ量の方が少ない場合はそのまま引く
             HP -= damage;
-        }else if (HP < damage)
+        }else if (HP <= damage)
         {
             //残りHPよりダメージ量の方が多ければ強制的にゼロに
             HP = 0;
