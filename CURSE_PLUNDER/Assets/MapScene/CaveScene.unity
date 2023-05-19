@@ -126154,6 +126154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc917766151de04e842288c89fed7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerName: 
   PlayerName_String: {fileID: 1748830713}
   HP_String: {fileID: 1286920247}
   MaxHP_String: {fileID: 1455882918}
@@ -127277,7 +127278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2020868643
 MonoBehaviour:
   m_ObjectHideFlags: 0

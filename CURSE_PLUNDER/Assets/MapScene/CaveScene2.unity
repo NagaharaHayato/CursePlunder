@@ -2167,7 +2167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &399358562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117189,11 +117189,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc917766151de04e842288c89fed7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerName: 
   PlayerName_String: {fileID: 338977304}
   HP_String: {fileID: 2070244936}
   MaxHP_String: {fileID: 948891933}
   CursePoint_String: {fileID: 528900624}
   HP_Bar: {fileID: 1030199424}
+  GetCursedPointUI: {fileID: 0}
 --- !u!1 &674543724
 GameObject:
   m_ObjectHideFlags: 0
@@ -118806,6 +118808,7 @@ MonoBehaviour:
   Selector:
   - {fileID: 19905580}
   - {fileID: 228809}
+  InfomationText: {fileID: 0}
 --- !u!1 &942057353
 GameObject:
   m_ObjectHideFlags: 0
