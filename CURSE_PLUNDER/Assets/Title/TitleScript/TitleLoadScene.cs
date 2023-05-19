@@ -23,10 +23,11 @@ public class TitleLoadScene : MonoBehaviour
     public void LoadNewScene()
     {
 
-        //DeliverclassŽæ“¾
+        //PlayerStat Player_Stat = FindObjectOfType<PlayerStat>();
+        ////inputField‚Ì•¶Žš—ñ‚ðdeliver‚É“n‚·
+        //Player_Stat.PlayerName = inputField.text;
         DeliverClass deliver = FindObjectOfType<DeliverClass>();
-        //inputField‚Ì•¶Žš—ñ‚ðdeliver‚É“n‚·
-        deliver.deliverString = inputField.text;
+        deliver.deliverString= inputField.text;
         SceneManager.LoadScene("MapScene");
 
     }
