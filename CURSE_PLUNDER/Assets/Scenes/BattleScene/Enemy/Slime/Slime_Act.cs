@@ -19,6 +19,7 @@ public class Slime_Act : MonoBehaviour
     GameObject TargetObj;
     GameObject UIcanvas;
 
+    [SerializeField]Collider2D AttackPhase_Circle;
     
     Vector2         TargetPos;                          //追跡するターゲットの座標が入る
     Vector2         SlimePos;                           //自分自身の座標
@@ -34,6 +35,7 @@ public class Slime_Act : MonoBehaviour
     public static bool    IsAttack        = false;
     private float   AttackDegree    = 0.0f;
     private float   AttackTime      = 0.0f;
+    private float   AttackInverval = 50.0f;
     private float   rad             = 0;                //角度
 
 
@@ -126,6 +128,8 @@ public class Slime_Act : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
                 SlimeAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
+
+                if (AttackInverval >= 0.0f) AttackInverval -= 1.0f;
 			}
 			else
 			{
@@ -134,7 +138,9 @@ public class Slime_Act : MonoBehaviour
                 if (AttackTime <= 0.0f)
                 {
                     IsAttack = false;
-                    MOVE_SPEED = EnemyData.MOVE_SPEED;
+                    AttackInverval = 150.0f;
+					SlimeRB.velocity = Vector2.zero;
+					MOVE_SPEED = EnemyData.MOVE_SPEED;
                 }
                 else
                 {
@@ -189,11 +195,13 @@ public class Slime_Act : MonoBehaviour
 
         if (!IsAttack && collision.gameObject.CompareTag("Player"))
 		{
-            IsAttack = true;
-            AttackTime = 10.0f;
-            Vector2 Distance = TargetObj.transform.position - this.transform.position;
-            AttackDegree = Mathf.Atan2(Distance.y, Distance.x) * Mathf.Rad2Deg;
-           
+            if (AttackInverval <= 0.0f)
+            {
+                IsAttack = true;
+                AttackTime = 50.0f;
+                Vector2 Distance = TargetObj.transform.position - this.transform.position;
+                AttackDegree = Mathf.Atan2(Distance.y, Distance.x) * Mathf.Rad2Deg;
+            }
 		}
 
     }
