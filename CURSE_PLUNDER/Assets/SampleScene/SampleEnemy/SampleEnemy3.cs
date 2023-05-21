@@ -4,33 +4,33 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BossUroboros : MonoBehaviour
+public class SampleEnemy3 : MonoBehaviour
 {
-    [SerializeField]GameObject BossHPbar;
+    [SerializeField] GameObject HPbar;
     [SerializeField] GameObject ExpOrb_Obj;
     [SerializeField] GameObject DamageView;
 
     [SerializeField]
     GameObject centerObj;
-    
+
     GameObject FireBleath;
 
     GameObject TargetObj;
     GameObject UIcanvas;
-    Animator BossAnim;
-    public static int BossHP = 100;
+    //Animator BossAnim;
+    public static int BossHP = 20;
     public static int BossMaxHP;
     private float HP_per;
 
     private Vector3 targetpos;
 
-    public float angle = 70;
+    float angle = 50;
 
     void Start()
     {
         TargetObj = GameObject.Find("Player");
         UIcanvas = GameObject.Find("UI");
-        BossAnim = GetComponent<Animator>();
+      //  BossAnim = GetComponent<Animator>();
 
         targetpos = transform.position;
 
@@ -41,21 +41,20 @@ public class BossUroboros : MonoBehaviour
     void Update()
     {
         //âùïúà⁄ìÆ
-        if (BossHP <= 100&&BossHP>=76)
+        if (BossHP <= 100 && BossHP >= 76)
         {
             transform.position = new Vector3(Mathf.Sin(Time.time) * 10.0f + targetpos.x, targetpos.y, targetpos.z);
         }
-            BossAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
+       // BossAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
         //HP75à»â∫Ç≈â~à⁄ìÆ
-        if(BossHP<=75&&BossHP>=51)
+        if (BossHP <= 75 && BossHP >= 50)
         {
             transform.RotateAround(centerObj.transform.position, Vector3.forward, angle * Time.deltaTime);
         }
-        if (BossHP <= 50)
-        {
-            transform.RotateAround(centerObj.transform.position, Vector3.forward, -angle * Time.deltaTime);
-            //transform.position = new Vector3(Mathf.Sin(Time.time) * 30.0f + targetpos.x, targetpos.y, targetpos.z);
-        }
+        //if (BossHP <= 50)
+        //{
+        //    transform.position = new Vector3(Mathf.Sin(Time.time) * 30.0f + targetpos.x, targetpos.y, targetpos.z);
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
