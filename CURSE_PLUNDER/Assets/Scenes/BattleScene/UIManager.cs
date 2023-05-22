@@ -10,7 +10,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject VictoryUI;
     [SerializeField] GameObject KnockdownUI;
     [SerializeField] GameObject TimeoverUI;
-    [SerializeField] GameObject CommandSelectUI;
     [SerializeField] GameObject TimeLimitUI;
     [SerializeField] GameObject BossDefeat_Fade;
 
@@ -56,7 +55,6 @@ public class UIManager : MonoBehaviour
 
         if (Timer.countdownSecound <= 0) TimeoverUI.SetActive(true);
 
-        CommandSelectUI.SetActive(PlayerControl.cmdselect_dialog);
 
         if (BossDefeat_Fade.activeInHierarchy && BDF_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {

@@ -8263,6 +8263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5691a7f32795df4e8112d4189dec0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerObj: {fileID: 0}
   Selector:
   - {fileID: 1441090200}
   - {fileID: 825505062}
@@ -10058,7 +10059,7 @@ MonoBehaviour:
   BossHPbar: {fileID: 1765236325271999633}
   ExpOrb_Obj: {fileID: 761216886393317385, guid: 9da7f276da6d230499f3f12a9183e102, type: 3}
   DamageView: {fileID: 5403138315800550304, guid: 2b33470ea47244a428c02f1868a6af49, type: 3}
-  centerObj: {fileID: 0}
+  centerObj: {fileID: 82052300}
   angle: 70
 --- !u!224 &5132208557516841478
 RectTransform:

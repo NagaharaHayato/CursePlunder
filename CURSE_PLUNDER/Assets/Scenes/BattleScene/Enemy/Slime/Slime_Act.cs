@@ -17,13 +17,10 @@ public class Slime_Act : MonoBehaviour
     [SerializeField] EnemyDataBase EnemyData;
     [SerializeField] GameObject UIDisplayPos;
 
-    [SerializeField] TextMeshProUGUI DistanceCheck;
     GameObject TargetObj;
     GameObject UIcanvas;
 
-    CircleCollider2D Searching_Hit;
 
-    [SerializeField] private Collider2D AttackPhase_Circle;
     
     Vector2         TargetPos;                          //追跡するターゲットの座標が入る
     Vector2         SlimePos;                           //自分自身の座標
@@ -78,8 +75,6 @@ public class Slime_Act : MonoBehaviour
         
         HPBarRect = HPBar.GetComponent<RectTransform>();
         STBarRect = STBar.GetComponent<RectTransform>();
-
-        Searching_Hit = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -104,7 +99,6 @@ public class Slime_Act : MonoBehaviour
             {
 				//ある一定以上、プレイヤーが近づいたら攻撃を行う
 				if (Vector2.Distance(this.gameObject.transform.position, TargetObj.transform.position) < 5.0f) AttackLaunch();
-                DistanceCheck.text = Vector2.Distance(this.gameObject.transform.position, TargetObj.transform.position).ToString();
 
 				//追跡するオブジェクトの座標情報を更新
 				TargetPos = TargetObj.GetComponent<Transform>().position;
