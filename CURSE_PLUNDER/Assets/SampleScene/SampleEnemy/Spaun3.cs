@@ -42,7 +42,7 @@ public class Spaun3 : MonoBehaviour
         // BossのHP50イカで発動
         if (time > 3.0f)
         {
-            if (BossHP <= 30)
+            if (BossHP <= 50)
             {
                 // rangeAとrangeBのx座標の範囲内でランダムな数値を作成
                 float x = Random.Range(rangeA.position.x, rangeB.position.x);

@@ -9,7 +9,7 @@ public class PlayerStat : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private string PlayerName;
+    public string PlayerName;
     public static int HP, MaxHP;
     private int ATK, DefaultATK;
     private int DEF, DefaultDEF;
@@ -25,11 +25,12 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] GameObject         HP_Bar;
 
     [SerializeField] TextMeshProUGUI    GetCursedPointUI;
-
+    
+    
+    
     void Awake()
     {
         PlayerName_String.text = PlayerPrefs.GetString("PlayerName");
-
         HP = PlayerPrefs.GetInt("HP");
         MaxHP = PlayerPrefs.GetInt("MaxHP");
 
@@ -51,7 +52,8 @@ public class PlayerStat : MonoBehaviour
 
     void Start()
     {
-        
+
+        //DontDestroyOnLoad();
     }
 
     // Update is called once per frame

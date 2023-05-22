@@ -10,9 +10,12 @@ public class inputfield : MonoBehaviour
 
     private void Start()
     {
-        //Deliverclass取得
-        DeliverClass deliver = FindObjectOfType<DeliverClass>();
-        //DelliverClsssから文字列を取得してセット
+        ////Deliverclass取得
+        //PlayerStat Player_Stat = FindObjectOfType<PlayerStat>();
+        ////DelliverClsssから文字列を取得してセット
+        //texstring.text = Player_Stat.PlayerName;
+
+        DeliverClass deliver= FindObjectOfType<DeliverClass>();
         texstring.text = deliver.deliverString;
     }
 }

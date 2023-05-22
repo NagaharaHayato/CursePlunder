@@ -10,6 +10,9 @@ public class BossUroboros : MonoBehaviour
     [SerializeField] GameObject ExpOrb_Obj;
     [SerializeField] GameObject DamageView;
 
+    [SerializeField]
+    GameObject centerObj;
+    
     GameObject FireBleath;
 
     GameObject TargetObj;
@@ -20,8 +23,15 @@ public class BossUroboros : MonoBehaviour
     private float HP_per;
 
     private Vector3 targetpos;
-   
-    
+
+    public float angle = 70;
+
+    //[SerializeField] GameObject sphere;
+    //[SerializeField] GameObject childObj;
+    //private float Bulletspeed = 300;
+
+    //public float interval = 3.0f;
+    //public float time = 0.0f;
 
     void Start()
     {
@@ -31,14 +41,32 @@ public class BossUroboros : MonoBehaviour
 
         targetpos = transform.position;
 
+        //childObj = transform.GetChild(0).gameObject;
+
+        //InvokeRepeating("SpawnObj", time, interval);
+
         BossMaxHP = BossHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.Sin(Time.time) * 10.0f + targetpos.x, targetpos.y, targetpos.z);
-        BossAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
+        //âùïúà⁄ìÆ
+        if (BossHP <= 100&&BossHP>=76)
+        {
+            transform.position = new Vector3(Mathf.Sin(Time.time) * 10.0f + targetpos.x, targetpos.y, targetpos.z);
+        }
+            BossAnim.SetFloat("Multiplier", UIManage.SpeedAdjust);
+        //HP75à»â∫Ç≈â~à⁄ìÆ
+        if(BossHP<=75&&BossHP>=51)
+        {
+            transform.RotateAround(centerObj.transform.position, Vector3.forward, angle * Time.deltaTime);
+        }
+        if (BossHP <= 50)
+        {
+            transform.RotateAround(centerObj.transform.position, Vector3.forward, -angle * Time.deltaTime);
+            //transform.position = new Vector3(Mathf.Sin(Time.time) * 30.0f + targetpos.x, targetpos.y, targetpos.z);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,4 +86,12 @@ public class BossUroboros : MonoBehaviour
             }
         }
     }
+
+    //void SpawnObj()
+    //{
+    //    GameObject ball = (GameObject)Instantiate(sphere, childObj.transform.position, Quaternion.identity);
+    //    Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
+    //    ballRigidbody.AddForce(transform.forward * Bulletspeed);
+    //}
+
 }
