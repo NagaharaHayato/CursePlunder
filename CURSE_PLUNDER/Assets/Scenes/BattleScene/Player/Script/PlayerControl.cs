@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour
 {
 	Animator animator;		//主人公の歩行アニメを扱うアニメーター
 	Rigidbody2D PlayerRB;   //主人公の移動で使用するリジッドボディ
+	public static Shield_Management Smanage;
 
 	//最後の入力された方向を覚えておくためベクター
 	Vector2 lastmove = new Vector2(0,0);				//入力された方向を保存する用
@@ -56,8 +57,7 @@ public class PlayerControl : MonoBehaviour
 
 				//コマンド選択画面を表示させる
 				if (Input.GetKeyDown(KeyCode.D)){
-					cmdselect_dialog = true;
-					ControlMode = 1;
+					if (!Shield_Management.IsShield) Shield_Management.Awake_Shield();
 				}
 
                 if (moveact != Vector2.zero)
@@ -140,20 +140,33 @@ public class PlayerControl : MonoBehaviour
 	{
 		if (!Invisible && collision.gameObject.CompareTag("Enemy"))
 		{
-			if (Slime_Act.IsAttack) PlayerStat.GiveDamage(50);
+			//スライムの攻撃状態を解除
 			Slime_Act.IsAttack = false;
-		}
-		else if (collision.gameObject.CompareTag("EnemyFire")){
-			PlayerStat.GiveDamage(50);
-		}
-		else if (collision.gameObject.CompareTag("EnemyCyclon")){
-			PlayerStat.GiveDamage(50);
-		}
-		else if (collision.gameObject.CompareTag("EnemyWater")){
-			PlayerStat.GiveDamage(50);
-		}
-	}
 
+			//ダメージ処理を行う
+			DamageProcess(50);
+
+        }
+		else if (collision.gameObject.CompareTag("EnemyFire")){
+            
+        }
+		else if (collision.gameObject.CompareTag("EnemyCyclon")){
+            
+        }
+		else if (collision.gameObject.CompareTag("EnemyWater")){
+            
+        }
+	}
+	private void DamageProcess(int DamagePoint){
+        //シールドの耐久値が残っていれば、シールドの耐久値をダメージ分減らし
+        //シールドが張られていない状態であれば、そのままダメージをHPで受ける
+        if (!Shield_Management.IsShield){
+            
+            PlayerStat.GiveDamage(DamagePoint);
+			DamageColorZero();
+			Invisibled();
+        }
+    }
 	public static void DamageColorZero() { Damage_Color = 0; }
 	public static void Invisibled()
 	{
