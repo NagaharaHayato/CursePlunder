@@ -26,6 +26,13 @@ public class BossUroboros : MonoBehaviour
 
     public float angle = 70;
 
+    //[SerializeField] GameObject sphere;
+    //[SerializeField] GameObject childObj;
+    //private float Bulletspeed = 300;
+
+    //public float interval = 3.0f;
+    //public float time = 0.0f;
+
     void Start()
     {
         TargetObj = GameObject.Find("Player");
@@ -33,6 +40,10 @@ public class BossUroboros : MonoBehaviour
         BossAnim = GetComponent<Animator>();
 
         targetpos = transform.position;
+
+        //childObj = transform.GetChild(0).gameObject;
+
+        //InvokeRepeating("SpawnObj", time, interval);
 
         BossMaxHP = BossHP;
     }
@@ -75,4 +86,12 @@ public class BossUroboros : MonoBehaviour
             }
         }
     }
+
+    //void SpawnObj()
+    //{
+    //    GameObject ball = (GameObject)Instantiate(sphere, childObj.transform.position, Quaternion.identity);
+    //    Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
+    //    ballRigidbody.AddForce(transform.forward * Bulletspeed);
+    //}
+
 }

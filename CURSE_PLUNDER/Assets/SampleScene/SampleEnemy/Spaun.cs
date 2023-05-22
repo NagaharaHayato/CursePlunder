@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Spaun : MonoBehaviour
 {
-
+   
     public GameObject[] obj;
     public float interval = 3.0f;
     public float time = 0.0f;
+   // float radian = -PLAYER_DIR_RAD * (Mathf.PI / 180);
     // Start is called before the first frame update
     void Start()
     {

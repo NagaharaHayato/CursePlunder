@@ -1965,8 +1965,10 @@ GameObject:
   - component: {fileID: 464750210}
   - component: {fileID: 464750209}
   - component: {fileID: 464750208}
+  - component: {fileID: 464750212}
+  - component: {fileID: 464750213}
   m_Layer: 0
-  m_Name: EnemyButta3 (1)
+  m_Name: EnemyButta4
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2143,6 +2145,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &464750212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464750206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d76f60d3af57544bda62d143e4fbaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HPBar: {fileID: 2101743332}
+  STBar: {fileID: 1756732954}
+  EnemyData: {fileID: 11400000, guid: f15a211504fc5264aa8b8ccd5ffbe11d, type: 2}
+  HP_per: 0
+  ST_per: 0
+--- !u!114 &464750213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464750206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b6cb63b00acd54d96770cb0100f719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj:
+  - {fileID: 110372126834371399, guid: 0b22a842a8f9e0f46b600e1890a31f77, type: 3}
+  interval: 4
+  time: 1
 --- !u!1 &498967939
 GameObject:
   m_ObjectHideFlags: 0
@@ -10024,6 +10059,7 @@ MonoBehaviour:
   ExpOrb_Obj: {fileID: 761216886393317385, guid: 9da7f276da6d230499f3f12a9183e102, type: 3}
   DamageView: {fileID: 5403138315800550304, guid: 2b33470ea47244a428c02f1868a6af49, type: 3}
   centerObj: {fileID: 0}
+  angle: 70
 --- !u!224 &5132208557516841478
 RectTransform:
   m_ObjectHideFlags: 0

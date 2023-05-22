@@ -111238,11 +111238,11 @@ GameObject:
   - component: {fileID: 451725342}
   - component: {fileID: 451725349}
   - component: {fileID: 451725348}
-  - component: {fileID: 451725347}
   - component: {fileID: 451725346}
   - component: {fileID: 451725345}
   - component: {fileID: 451725344}
   - component: {fileID: 451725343}
+  - component: {fileID: 451725350}
   m_Layer: 5
   m_Name: Player
   m_TagString: Player
@@ -111369,21 +111369,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &451725347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451725341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21bffaea687ed9e458d8f38e58c35365, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SwordObj: {fileID: 0}
-  FreeStyleSword: {fileID: 0}
-  MOVE_SPEED: 35
 --- !u!95 &451725348
 Animator:
   serializedVersion: 5
@@ -111457,6 +111442,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &451725350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451725341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15489d8a05d552a4cbd48abff97204cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MOVE_SPEED: 25
 --- !u!1 &528900622
 GameObject:
   m_ObjectHideFlags: 0
