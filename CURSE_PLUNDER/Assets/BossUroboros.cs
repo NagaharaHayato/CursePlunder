@@ -26,6 +26,8 @@ public class BossUroboros : MonoBehaviour
 
     public float angle = 70;
 
+    private AudioSource sound01;
+
     //[SerializeField] GameObject sphere;
     //[SerializeField] GameObject childObj;
     //private float Bulletspeed = 300;
@@ -46,6 +48,7 @@ public class BossUroboros : MonoBehaviour
         //InvokeRepeating("SpawnObj", time, interval);
 
         BossMaxHP = BossHP;
+        sound01 = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -73,6 +76,7 @@ public class BossUroboros : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Sword"))
         {
+            sound01.PlayOneShot(sound01.clip);
             BossHP--;
             GameObject _damageView = Instantiate(DamageView, this.transform.position, Quaternion.identity);
             _damageView.transform.SetParent(UIcanvas.transform, false);
