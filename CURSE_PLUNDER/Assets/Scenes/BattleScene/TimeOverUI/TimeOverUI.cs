@@ -20,7 +20,7 @@ public class TimeOverUI : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //////ƒ^ƒCƒgƒ‹‚Ö–ß‚éˆ—
-                //SceneManager.LoadScene("Cave");
+               // SceneManager.LoadScene("Cave");
 
             }
         }
