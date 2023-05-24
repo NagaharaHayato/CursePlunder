@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,7 +31,16 @@ public class VictoryUI : MonoBehaviour
                 PlayerStat.GotCursePoint = 0;
 
                 //マップシーンへ戻る
-                SceneManager.LoadScene("CaveScene");
+                if (SceneManager.GetActiveScene().name == "BattleScene"){
+                    SceneManager.LoadScene("CaveScene2");
+                }else if (SceneManager.GetActiveScene().name == "BattleScene2"){
+                    SceneManager.LoadScene("CaveScene4");
+                }else if (SceneManager.GetActiveScene().name == "BattleScene3"){
+                    SceneManager.LoadScene("CaveScene3");
+                }else if (SceneManager.GetActiveScene().name == "BossFight"){
+                    
+                }
+                UIManager.Stages++;
             }
         }
     }
