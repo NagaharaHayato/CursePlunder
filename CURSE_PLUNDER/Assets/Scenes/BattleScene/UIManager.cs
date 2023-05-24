@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
         var span = new TimeSpan(0, 0, (int)Timer.countdownSecound);
         TimeCount.text = span.ToString(@"mm\:ss");
 
-        if (Timer.countdownSecound <= 0) TimeoverUI.SetActive(true);
+       // if (Timer.countdownSecound <= 0) TimeoverUI.SetActive(true);
 
 
         if (BossDefeat_Fade.activeInHierarchy && BDF_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)

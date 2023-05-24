@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TimeOverUI : MonoBehaviour
@@ -18,7 +19,9 @@ public class TimeOverUI : MonoBehaviour
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f){
             if (Input.GetKeyDown(KeyCode.F))
             {
-                //タイトルへ戻る処理
+                //////タイトルへ戻る処理
+                //SceneManager.LoadScene("Cave");
+
             }
         }
     }
