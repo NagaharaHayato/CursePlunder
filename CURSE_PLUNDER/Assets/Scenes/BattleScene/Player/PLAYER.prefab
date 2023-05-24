@@ -299,7 +299,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SwordObj: {fileID: 5966929538844967352, guid: 470b224e38155ee4b99ea61cec1faa23, type: 3}
-  FreeStyleSword: {fileID: 0}
+  FireObject: {fileID: 8527316031093885860, guid: 96ab1c5a9cbf92c4591ce499fb681ca9, type: 3}
+  WaterObject: {fileID: 433484444288291572, guid: 783ecbd2db8e86f418a5a35fa092d4fd, type: 3}
+  CyclonObject: {fileID: 145162462157025916, guid: 949f1f847d670f04d9e6bba479fbb5c0, type: 3}
+  FreeStyleSword: {fileID: 1435195929862664389, guid: 70d111c424e3ae84a8d337015fb245b5, type: 3}
   MOVE_SPEED: 35
 --- !u!50 &3404516558807965837
 Rigidbody2D:
