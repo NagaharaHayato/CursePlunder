@@ -33,7 +33,7 @@ public class TitleLoadScene : MonoBehaviour
     }
     public void NameScene()
     {
-        SceneManager.LoadScene("NameScene");
+        SceneManager.LoadScene("MapScene");
 
     }
     public void TitleScene()
