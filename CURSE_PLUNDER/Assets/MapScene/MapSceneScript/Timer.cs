@@ -67,6 +67,7 @@ public class Timer : MonoBehaviour
         {
                // DefeatUI.SetActive(true);
                 isTimeUp = true;
+            countdownSecound = countdownMinu * 60;
             SceneManager.LoadScene("Title");
         }
 
