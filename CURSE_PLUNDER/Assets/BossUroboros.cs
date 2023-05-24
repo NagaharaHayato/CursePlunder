@@ -7,7 +7,7 @@ using UnityEngine;
 public class BossUroboros : MonoBehaviour
 {
     [SerializeField]GameObject BossHPbar;
-    [SerializeField] GameObject ExpOrb_Obj;
+   // [SerializeField] GameObject ExpOrb_Obj;
     [SerializeField] GameObject DamageView;
 
     [SerializeField]
@@ -85,7 +85,7 @@ public class BossUroboros : MonoBehaviour
 
             if (BossHP <= 0)
             {
-                Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);
+     //           Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }

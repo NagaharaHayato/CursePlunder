@@ -72,6 +72,16 @@ public class PlayerClider : MonoBehaviour
             UIManager.HitEnemyObj = collision.gameObject;
             SceneManager.LoadScene("BattleScene");
         }
+        if (collision.gameObject.CompareTag("Enemy2"))
+        {
+            UIManager.HitEnemyObj = collision.gameObject;
+            SceneManager.LoadScene("BattleScene2");
+        }
+        if (collision.gameObject.CompareTag("Enemy3"))
+        {
+            UIManager.HitEnemyObj = collision.gameObject;
+            SceneManager.LoadScene("BattleScene3");
+        }
 
         if (collision.gameObject.CompareTag("Boss"))
         {

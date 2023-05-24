@@ -89,6 +89,7 @@ public class SampleEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Translate(new Vector2(0.1f, 0));
         // 前フレームからの時間を加算していく
         time = time + Time.deltaTime;
         // BossのHP50イカで発動
@@ -225,6 +226,13 @@ public class SampleEnemy : MonoBehaviour
             Vector2 Distance = TargetObj.transform.position - this.transform.position;
             AttackDegree = Mathf.Atan2(Distance.y, Distance.x) * Mathf.Rad2Deg;
 
+        }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+
+            //壁にぶつかれば反発
+            transform.Rotate(new Vector2(180, 180));
         }
 
     }

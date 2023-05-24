@@ -593,9 +593,8 @@ MonoBehaviour:
   obj:
   - {fileID: 4485163982265679153, guid: 257279277ff81574bb98c5f79c41b07f, type: 3}
   - {fileID: 6387212722469411389, guid: 02b02fc761a39e24ba619228c8f15bea, type: 3}
-  - {fileID: 2397124417171477421, guid: 06a99bf7d05b3084190e1fed0b52d501, type: 3}
-  interval: 6
-  time: 4
+  interval: 3
+  time: 3
 --- !u!212 &596094073
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -806,7 +805,6 @@ MonoBehaviour:
   obj:
   - {fileID: 4485163982265679153, guid: 257279277ff81574bb98c5f79c41b07f, type: 3}
   - {fileID: 6387212722469411389, guid: 02b02fc761a39e24ba619228c8f15bea, type: 3}
-  - {fileID: 2397124417171477421, guid: 06a99bf7d05b3084190e1fed0b52d501, type: 3}
   interval: 3
   time: 3
 --- !u!212 &844109019
@@ -3249,9 +3247,8 @@ MonoBehaviour:
   obj:
   - {fileID: 4485163982265679153, guid: 257279277ff81574bb98c5f79c41b07f, type: 3}
   - {fileID: 6387212722469411389, guid: 02b02fc761a39e24ba619228c8f15bea, type: 3}
-  - {fileID: 2397124417171477421, guid: 06a99bf7d05b3084190e1fed0b52d501, type: 3}
-  interval: 5
-  time: 2
+  interval: 3
+  time: 3
 --- !u!212 &2071980145
 SpriteRenderer:
   m_ObjectHideFlags: 0

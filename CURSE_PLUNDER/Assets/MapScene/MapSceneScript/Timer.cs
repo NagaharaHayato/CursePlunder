@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     /// </summary>
     // Start is called before the first frame update
 
-    public static int countdownMinu = 30;
+    public static int countdownMinu = 4;
     //public static int countdownMinu = 1;
     public static float countdownSecound = countdownMinu * 60;
     //　トータル制限時間

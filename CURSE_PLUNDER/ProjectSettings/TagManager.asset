@@ -28,6 +28,8 @@ TagManager:
   - EnemyCyclon
   - EnemyWater
   - Shield
+  - Enemy2
+  - Enemy3
   layers:
   - Default
   - TransparentFX

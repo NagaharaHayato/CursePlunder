@@ -12,7 +12,7 @@ public class Slime_Act : MonoBehaviour
     [SerializeField] GameObject     HPBar;  RectTransform  HPBarRect;
 	[SerializeField] GameObject     STBar;  RectTransform  STBarRect;
 
-    [SerializeField] GameObject ExpOrb_Obj;
+   // [SerializeField] GameObject ExpOrb_Obj;
     [SerializeField] GameObject DamageView;
     [SerializeField] EnemyDataBase EnemyData;
     [SerializeField] GameObject UIDisplayPos;
@@ -202,7 +202,7 @@ public class Slime_Act : MonoBehaviour
             if (Slime_HP <= 0)
             {
                 PlayerStat.AddCursePoint(10);
-                Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);
+               // Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }

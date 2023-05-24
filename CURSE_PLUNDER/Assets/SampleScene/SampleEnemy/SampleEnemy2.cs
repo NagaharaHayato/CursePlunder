@@ -95,6 +95,7 @@ public class SampleEnemy2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Translate(new Vector2(0.1f, 0));
         // 前フレームからの時間を加算していく
         time = time + Time.deltaTime;
         // BossのHP50イカで発動
@@ -124,30 +125,30 @@ public class SampleEnemy2 : MonoBehaviour
             {
 
                 //追跡するオブジェクトの座標情報を更新
-                TargetPos = TargetObj.GetComponent<Transform>().position;
+                //TargetPos = TargetObj.GetComponent<Transform>().position;
 
-                //追跡するオブジェクトとスライムの２点間の角度を求める
-                Vector2 vector = new Vector2(transform.position.x - TargetPos.x, transform.position.y - TargetPos.y);
-                rad = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+                ////追跡するオブジェクトとスライムの２点間の角度を求める
+                //Vector2 vector = new Vector2(transform.position.x - TargetPos.x, transform.position.y - TargetPos.y);
+                //rad = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
 
                 //角度を「-180～180度」から「0～360度」に変換
                 if (rad <= 0.0f) { rad = Mathf.Abs(rad); } else { rad = 360.0f - Mathf.Abs(rad); }
 
 
-                //追跡するオブジェクトがいる方向へ向く
-                direction = 1;
-                if (rad >= 337.5 || (rad >= 0.0f && rad <= 22.5f))
-                {
+                ////追跡するオブジェクトがいる方向へ向く
+                //direction = 1;
+                //if (rad >= 337.5 || (rad >= 0.0f && rad <= 22.5f))
+                //{
 
-                }
-                else
-                {
-                    for (float r = 22.5f; r <= 315.0f; r += 45.0f)
-                    {
-                        direction++;
-                        if (rad >= r && rad <= r + 45.0f) break;
-                    }
-                }
+                //}
+                //else
+                //{
+                //    for (float r = 22.5f; r <= 315.0f; r += 45.0f)
+                //    {
+                //        direction++;
+                //        if (rad >= r && rad <= r + 45.0f) break;
+                //    }
+                //}
                 //アニメーターに方向の値を渡す
                 //SlimeAnim.SetFloat("Direction", (float)direction);
 
@@ -233,6 +234,12 @@ public class SampleEnemy2 : MonoBehaviour
             AttackDegree = Mathf.Atan2(Distance.y, Distance.x) * Mathf.Rad2Deg;
             //transform.RotateAround(centerObj.transform.position, Vector3.forward, angle * Time.deltaTime);
 
+        }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+
+            //壁にぶつかれば反発
+            transform.Rotate(new Vector2(0, 180));
         }
 
     }
