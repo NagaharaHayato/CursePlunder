@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
 
-    [SerializeField] GameObject DefeatUI;
+    //[SerializeField] GameObject DefeatUI;
     //public static float time=10;
     /// <summary>
     /// public static float time=4320;
@@ -60,7 +60,7 @@ public class Timer : MonoBehaviour
         }
         if(countdownSecound<=0)
         {
-                DefeatUI.SetActive(true);
+                //DefeatUI.SetActive(true);
                 isTimeUp = true;
         }
 

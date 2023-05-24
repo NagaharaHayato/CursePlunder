@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class KnockDownUI : MonoBehaviour
@@ -72,15 +73,16 @@ public class KnockDownUI : MonoBehaviour
                 switch (SelectCursol) {
                     case 0:     //REVIVE‚ğ‘I‘ğ‚µ‚½ê‡
                         PlayerObj.SetActive(true);
-						PlayerControl.Invisible = true;
+                        PlayerControl.Invisible = true;
                         PlayerControl.InvisibleTime = 100.0f;
-                        PlayerStat.Revive();
+                        SceneManager.LoadScene("CaveScene");
+                        //PlayerStat.Revive();
 
                         //ÅŒã‚É‚±‚ÌUI‚ğ•Â‚¶‚é
                         this.gameObject.SetActive(false);
                         break;
                     case 1:     //RETIRE‚ğ‘I‘ğ‚µ‚½ê‡
-
+                        SceneManager.LoadScene("Title");
                         break;
                 }
 
