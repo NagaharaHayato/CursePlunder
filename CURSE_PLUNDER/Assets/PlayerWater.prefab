@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 18639677210904235}
   - component: {fileID: 7787493629986438556}
   - component: {fileID: -8293627912031922883}
-  - component: {fileID: 3132259109779316098}
+  - component: {fileID: -6566431583775690337}
   m_Layer: 0
-  m_Name: Water
+  m_Name: PlayerWater
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5005,7 +5005,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3132259109779316098
+--- !u!114 &-6566431583775690337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

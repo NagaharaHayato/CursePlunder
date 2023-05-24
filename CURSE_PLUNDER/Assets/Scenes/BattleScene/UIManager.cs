@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject TimeoverUI;
     [SerializeField] GameObject TimeLimitUI;
     [SerializeField] GameObject BossDefeat_Fade;
+    [SerializeField] GameObject Skill_SelectUI;
 
     [SerializeField] TextMeshProUGUI TimeCount;
 
@@ -25,7 +26,8 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        BDF_Animator = BossDefeat_Fade.GetComponent<Animator>();   
+        BDF_Animator = BossDefeat_Fade.GetComponent<Animator>();
+        isTimeStop = false;
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class UIManager : MonoBehaviour
         {
             isTimeStop = true;              //カウントダウンを停止
             VictoryUI.SetActive(true);      //VictoryUIの有効化
+            Skill_SelectUI.SetActive(false);
 
         //プレイヤーのHPがゼロになった場合
         }else if (PlayerStat.HP <= 0){

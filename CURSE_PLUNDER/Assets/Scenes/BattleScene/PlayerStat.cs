@@ -25,8 +25,7 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] GameObject         HP_Bar;
 
     [SerializeField] TextMeshProUGUI    GetCursedPointUI;
-    
-    
+
     
     void Awake()
     {
@@ -121,5 +120,10 @@ public class PlayerStat : MonoBehaviour
 
             CursePoint = 0;
         }
+    }
+
+    public static void CostPay(int costpay)
+    {
+        if (HP > costpay) HP -= costpay;
     }
 }

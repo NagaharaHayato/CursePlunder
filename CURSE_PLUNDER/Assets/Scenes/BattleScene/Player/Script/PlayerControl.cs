@@ -11,13 +11,15 @@ public class PlayerControl : MonoBehaviour
 {
 	Animator animator;		//主人公の歩行アニメを扱うアニメーター
 	Rigidbody2D PlayerRB;   //主人公の移動で使用するリジッドボディ
-	public static Shield_Management Smanage;
 
 	//最後の入力された方向を覚えておくためベクター
 	Vector2 lastmove = new Vector2(0,0);				//入力された方向を保存する用
 	Vector2 moveact;									//移動ベクトル
 	[SerializeField] public GameObject SwordObj;                //剣のオブジェクト
-	[SerializeField] public GameObject FreeStyleSword;			//フリースタイルソード（角度指定可）
+	[SerializeField] public GameObject FireObject;
+    [SerializeField] public GameObject WaterObject;
+    [SerializeField] public GameObject CyclonObject;
+    [SerializeField] public GameObject FreeStyleSword;          //フリースタイルソード（角度指定可
 
 	[SerializeField] private float MOVE_SPEED = 6.0f;  //主人公の移動速度
 	public static float PLAYER_DIR_RAD = 90.0f;         //主人公の向き
@@ -26,8 +28,12 @@ public class PlayerControl : MonoBehaviour
 	public static bool  Invisible          = false;		            //無敵フラグ（ノックダウンから復活後に敵からダメージを受けるのを防ぐ）
 	public static int   InvisibleBlink     = 1; 					//無敵状態時にプレイヤーキャラを点滅させる用
 	public static float Invisible_Interval = 0;						//無敵状態時の点滅アニメーション用
-	public static float InvisibleTime      = 0;						//無敵時間
-	
+	public static float InvisibleTime      = 0;                     //無敵時間
+
+	public static float[] CooldownTime = new float[5];
+	int GuardLimit = 3;
+	bool[] IsCoolTime = new bool[5];
+
 	public static int ControlMode = 0;
 
 	private static int Damage_Color = 255;
@@ -50,15 +56,82 @@ public class PlayerControl : MonoBehaviour
 		if (Damage_Color <= 255) Damage_Color += 15;
 		gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, (float)Damage_Color / 255, (float)Damage_Color / 255, InvisibleBlink );
 
+		for(int i = 0; i < 5; i++){
+			if (CooldownTime[i] > 0){
+				CooldownTime[i] -= Time.deltaTime;
+            }
+            else{
+				IsCoolTime[i] = false;
+			}
+		}
+
 		switch (ControlMode) {
 			case 0:
 				moveact = Vector2.zero;
                 moveact = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-				//コマンド選択画面を表示させる
-				if (Input.GetKeyDown(KeyCode.D)){
-					if (!Shield_Management.IsShield) Shield_Management.Awake_Shield();
-				}
+				//選択されたスキルをカースポイントもしくはHPを消費して発動
+				if (Input.GetKeyDown(KeyCode.S))
+				{
+					if (PlayerStat.HP > UISkill_Selector.GetSkillCost() ||
+						Timer.countdownSecound > UISkill_Selector.GetSkillCost()){
+                        switch (UISkill_Selector.GetSkillID())
+                        {
+                            //拡散発射
+                            case 0:
+								if (!IsCoolTime[0]){
+									KnifeThrow();
+									IsCoolTime[0] = true;
+
+									Skill_CostPay();
+                                }
+                                break;
+
+                            //ファイア
+                            case 1:
+								if (!IsCoolTime[1])
+								{
+                                    Instantiate(FireObject, transform.position, Quaternion.Euler(0, 0, -PLAYER_DIR_RAD + 90));
+                                    IsCoolTime[1] = true;
+                                    Skill_CostPay();
+
+                                }
+                                break;
+                            //ガード
+                            case 2:
+								if (!Shield_Management.IsShield && !IsCoolTime[2] && UISkill_Selector.GuardLimit > 0){
+									Shield_Management.Awake_Shield();
+									UISkill_Selector.GuardLimit--;
+                                    IsCoolTime[2] = true;
+
+									Skill_CostPay();
+                                }
+                                break;
+
+							//ウォーター
+							case 3:
+								if (!IsCoolTime[3]){
+                                    Instantiate(WaterObject, transform.position, Quaternion.Euler(0, 0, -PLAYER_DIR_RAD + 90));
+                                    IsCoolTime[3] = true;
+                                    Skill_CostPay();
+                                }
+								break;
+
+							//サイクロン
+							case 4:
+                                if (!IsCoolTime[4]){
+                                    Instantiate(CyclonObject, transform.position, Quaternion.Euler(0, 0, -PLAYER_DIR_RAD + 90));
+                                    IsCoolTime[4] = true;
+                                    Skill_CostPay();
+                                }
+                                break;
+                        }
+
+						
+
+                        
+                    }
+                }
 
                 if (moveact != Vector2.zero)
                 {
@@ -177,4 +250,12 @@ public class PlayerControl : MonoBehaviour
 			InvisibleTime = 30.0f;
 		}
 	}
+
+	void Skill_CostPay()
+	{
+        //クールダウンに入る
+        CooldownTime[UISkill_Selector.GetSkillID()] = UISkill_Selector.Skill_CT;
+        //コストを支払う
+        PlayerStat.CostPay(UISkill_Selector.GetSkillCost());
+    }
 }
