@@ -3452,7 +3452,7 @@ GameObject:
   - component: {fileID: 2106332275}
   - component: {fileID: 2106332274}
   m_Layer: 5
-  m_Name: BossHP_BackGround (1)
+  m_Name: BossHP_HPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
