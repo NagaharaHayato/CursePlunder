@@ -42,7 +42,7 @@ public class UISkill_Selector : MonoBehaviour
         if (SelectPosition == 2) { CountLimit_UI.SetActive(true); } else { CountLimit_UI.SetActive(false); }
         if (GuardLimit == 0) GuardLimit_UI.color = new Color(1.0f, 0.0f, 0.0f);
 
-        Skill_CTime.text = PlayerControl.CooldownTime[SelectPosition].ToString("N2");
+        Skill_CTime.text = PlayerControl.CooldownTime[SelectPosition].ToString("N1");
 
         if (PlayerControl.CooldownTime[SelectPosition] > 0.0f){
             Skill_CTobj.SetActive(true);

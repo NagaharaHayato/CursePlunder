@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject KnockdownUI;
     [SerializeField] GameObject TimeoverUI;
     [SerializeField] GameObject TimeLimitUI;
-    [SerializeField] GameObject BossDefeat_Fade;
+    //[SerializeField] GameObject BossDefeat_Fade;
     [SerializeField] GameObject Skill_SelectUI;
 
     [SerializeField] TextMeshProUGUI TimeCount;
@@ -22,11 +23,14 @@ public class UIManager : MonoBehaviour
     public static bool isTimeStop = false;
     public static int ControlMode = 0;
     public static float SpeedAdjust = 1.0f;
+
+    public static int Stages = 0;
+
     public static GameObject HitEnemyObj;
 
     void Start()
     {
-        BDF_Animator = BossDefeat_Fade.GetComponent<Animator>();
+        //BDF_Animator = BossDefeat_Fade.GetComponent<Animator>();
         isTimeStop = false;
     }
 
@@ -50,7 +54,7 @@ public class UIManager : MonoBehaviour
         if (BossUroboros.BossHP > 0 && !isTimeStop) Timer.countdownSecound -= Time.deltaTime;
 
         //ボスの体力がゼロになった場合はフェードを実行
-        if (BossUroboros.BossHP <= 0) BossDefeat_Fade.SetActive(true);
+       // if (BossUroboros.BossHP <= 0) BossDefeat_Fade.SetActive(true);
         
         
         var span = new TimeSpan(0, 0, (int)Timer.countdownSecound);
@@ -59,10 +63,10 @@ public class UIManager : MonoBehaviour
        // if (Timer.countdownSecound <= 0) TimeoverUI.SetActive(true);
 
 
-        if (BossDefeat_Fade.activeInHierarchy && BDF_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("ClearScene");
-        }
+        //if (BossDefeat_Fade.activeInHierarchy && BDF_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        //{
+        //    UnityEngine.SceneManagement.SceneManager.LoadScene("ClearScene");
+        //}
 
         //if ((GameObject.FindGameObjectsWithTag("Enemy").Length) <= 0)
         //{

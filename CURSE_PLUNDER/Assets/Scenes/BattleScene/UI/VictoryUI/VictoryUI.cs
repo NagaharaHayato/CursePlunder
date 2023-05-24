@@ -30,7 +30,20 @@ public class VictoryUI : MonoBehaviour
                 PlayerStat.GotCursePoint = 0;
 
                 //マップシーンへ戻る
-                SceneManager.LoadScene("CaveScene");
+                switch (UIManager.Stages)
+                {
+                    case 0:
+                        SceneManager.LoadScene("CaveScene2");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("CaveScene4");
+                        break;
+                    case 2:
+                        SceneManager.LoadScene("CaveScene3");
+                        break;
+
+                }
+                UIManager.Stages++;
             }
         }
     }
