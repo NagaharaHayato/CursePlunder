@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject KnockdownUI;
     [SerializeField] GameObject TimeoverUI;
     [SerializeField] GameObject TimeLimitUI;
-    //[SerializeField] GameObject BossDefeat_Fade;
+
     [SerializeField] GameObject Skill_SelectUI;
 
     [SerializeField] TextMeshProUGUI TimeCount;
@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
         {
             isTimeStop = true;              //カウントダウンを停止
             VictoryUI.SetActive(true);      //VictoryUIの有効化
+            PlayerControl.Invisible_Victory = true;
             Skill_SelectUI.SetActive(false);
 
         //プレイヤーのHPがゼロになった場合
@@ -59,23 +60,5 @@ public class UIManager : MonoBehaviour
         
         var span = new TimeSpan(0, 0, (int)Timer.countdownSecound);
         TimeCount.text = span.ToString(@"mm\:ss");
-
-       // if (Timer.countdownSecound <= 0) TimeoverUI.SetActive(true);
-
-
-        //if (BossDefeat_Fade.activeInHierarchy && BDF_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-        //{
-        //    UnityEngine.SceneManagement.SceneManager.LoadScene("ClearScene");
-        //}
-
-        //if ((GameObject.FindGameObjectsWithTag("Enemy").Length) <= 0)
-        //{
-        //    VictoryUI.SetActive(true);
-        //    if (VictoryUI.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f && Input.GetKeyDown(KeyCode.F))
-        //    {
-        //        UnityEngine.SceneManagement.SceneManager.LoadScene("CaveScene");
-        //    }
-        //}
-
     }
 }

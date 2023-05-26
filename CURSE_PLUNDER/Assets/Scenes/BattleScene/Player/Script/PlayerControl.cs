@@ -29,6 +29,7 @@ public class PlayerControl : MonoBehaviour
 	public static int   InvisibleBlink     = 1; 					//無敵状態時にプレイヤーキャラを点滅させる用
 	public static float Invisible_Interval = 0;						//無敵状態時の点滅アニメーション用
 	public static float InvisibleTime      = 0;                     //無敵時間
+	public static bool	Invisible_Victory  = false;
 
 	public static float[] CooldownTime = new float[5];
 	public static int GuardLimit = 2;
@@ -211,7 +212,7 @@ public class PlayerControl : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (!Invisible && collision.gameObject.CompareTag("Enemy"))
+		if (!Invisible && !Invisible_Victory && collision.gameObject.CompareTag("Enemy"))
 		{
 			//スライムの攻撃状態を解除
 			Slime_Act.IsAttack = false;

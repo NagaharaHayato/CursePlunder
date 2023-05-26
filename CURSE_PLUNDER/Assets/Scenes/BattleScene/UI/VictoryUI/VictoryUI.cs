@@ -40,7 +40,9 @@ public class VictoryUI : MonoBehaviour
                 }else if (SceneManager.GetActiveScene().name == "BossFight"){
                     
                 }
-                UIManager.Stages++;
+
+				PlayerControl.Invisible_Victory = false;
+				UIManager.Stages++;
             }
         }
     }

@@ -65,7 +65,6 @@ public class PlayerStat : MonoBehaviour
         HP_String.text = HP.ToString();
 
         //獲得した呪いポイントを反映
-        GetCursedPointUI.text = GotCursePoint.ToString();
         CursePoint_String.text = CursePoint.ToString();
 
         //保持しているカースポイントが最大体力以下の場合は黄色に、ゼロの場合は赤色
