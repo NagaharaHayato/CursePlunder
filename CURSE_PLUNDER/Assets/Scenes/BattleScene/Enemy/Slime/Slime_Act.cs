@@ -152,7 +152,7 @@ public class Slime_Act : MonoBehaviour
                 }
                 else
                 {
-                    MOVE_SPEED += 0.5f;
+                    MOVE_SPEED += 0.15f;
 
                     float Force_X = Mathf.Cos(AttackDegree * Mathf.Deg2Rad);
                     float Force_Y = Mathf.Sin(AttackDegree * Mathf.Deg2Rad);
@@ -180,11 +180,23 @@ public class Slime_Act : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        if (collision.gameObject.CompareTag("Sword"))
+        if (collision.gameObject.CompareTag("Sword") ||
+            collision.gameObject.CompareTag("Fire") ||
+            collision.gameObject.CompareTag("Cyclon") ||
+            collision.gameObject.CompareTag("Water"))
         {
             //ナイフが当たったらHPもしくはSTを減らす
-            Slime_HP--;
-            Slime_ST--;
+            if (collision.gameObject.tag == "Sword"){
+				Slime_HP--;
+				Slime_ST--;
+			}else if (collision.gameObject.tag == "Fire"){
+                Slime_HP -= Slime_MaxHP / 5;
+            }else if (collision.gameObject.tag == "Cyclon"){
+                Slime_HP -= Slime_MaxHP / 3;
+            }else if (collision.gameObject.tag == "Water"){
+                Slime_HP--;
+            }
+           
             //「DamageView（ダメージ表示オブジェクト）」の複製時にスライムがいるワールド座標からビューポート座標に変換する
             GameObject _damageView = Instantiate(DamageView, Camera.main.WorldToViewportPoint(transform.position), Quaternion.identity);
             //描画先のキャンバスを設定（親と子のオブジェクト設定）

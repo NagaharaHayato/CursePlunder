@@ -88,7 +88,20 @@ public class BossUroboros : MonoBehaviour
      //           Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
-        }
+        }else{
+			if (collision.gameObject.tag == "Fire")
+			{
+                BossHP -= 5;
+			}
+			else if (collision.gameObject.tag == "Cyclon")
+			{
+                BossHP -= 3;
+			}
+			else if (collision.gameObject.tag == "Water")
+			{
+                BossHP -= 7;
+			}
+		}
     }
 
     //void SpawnObj()

@@ -2627,6 +2627,7 @@ MonoBehaviour:
   TimeLimitUI: {fileID: 1968486966}
   BossDefeat_Fade: {fileID: 1284549820}
   Skill_SelectUI: {fileID: 1343017830}
+  ASource: {fileID: 1232543713}
   TimeCount: {fileID: 96770571}
 --- !u!1001 &1693481556
 PrefabInstance:
@@ -3071,6 +3072,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1478649471852017994, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394360364143995406, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

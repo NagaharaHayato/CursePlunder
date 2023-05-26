@@ -14,6 +14,7 @@ public class Boss_UIManager : MonoBehaviour
     [SerializeField] GameObject TimeLimitUI;
     [SerializeField] GameObject BossDefeat_Fade;
     [SerializeField] GameObject Skill_SelectUI;
+    [SerializeField] AudioSource ASource;
 
     [SerializeField] TextMeshProUGUI TimeCount;
 
@@ -47,9 +48,10 @@ public class Boss_UIManager : MonoBehaviour
 
         //ボスの体力がゼロになった場合はフェードを実行
         if (BossUroboros.BossHP <= 0) BossDefeat_Fade.SetActive(true);
+        if (BossDefeat_Fade.activeInHierarchy && ASource.volume > 0.0f) ASource.volume = -0.15f;
         if (BDF_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            //考え中
+            if (ASource.volume <= 0.0f) SceneManager.LoadScene("EndingScene");
         }
         
         

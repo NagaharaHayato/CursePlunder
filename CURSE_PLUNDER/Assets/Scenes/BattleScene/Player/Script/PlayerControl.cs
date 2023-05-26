@@ -31,7 +31,7 @@ public class PlayerControl : MonoBehaviour
 	public static float InvisibleTime      = 0;                     //無敵時間
 
 	public static float[] CooldownTime = new float[5];
-	int GuardLimit = 3;
+	public static int GuardLimit = 2;
 	bool[] IsCoolTime = new bool[5];
 
 	public static int ControlMode = 0;
@@ -206,7 +206,7 @@ public class PlayerControl : MonoBehaviour
 
 	public void KnifeThrow()
 	{
-		for(int i = 0; i < 90; i++) Instantiate(FreeStyleSword, transform.position, Quaternion.Euler(0, 0,i*8));
+		for(int i = 0; i < 45; i++) Instantiate(FreeStyleSword, transform.position, Quaternion.Euler(0, 0,i*16));
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -221,14 +221,14 @@ public class PlayerControl : MonoBehaviour
 
         }
 		else if (collision.gameObject.CompareTag("EnemyFire")){
-            
+			DamageProcess(60);
         }
 		else if (collision.gameObject.CompareTag("EnemyCyclon")){
-            
-        }
+			DamageProcess(40);
+		}
 		else if (collision.gameObject.CompareTag("EnemyWater")){
-            
-        }
+			DamageProcess(70);
+		}
 	}
 	private void DamageProcess(int DamagePoint){
         //シールドの耐久値が残っていれば、シールドの耐久値をダメージ分減らし
