@@ -203,21 +203,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 454569794213223227, guid: 3faa5b4b953171d4ea5b912150ef64d0, type: 3}
-      propertyPath: BossDefeat_Fade
-      value: 
-      objectReference: {fileID: 430536242}
-    - target: {fileID: 4283691822276522635, guid: 3faa5b4b953171d4ea5b912150ef64d0, type: 3}
-      propertyPath: PlayerObj
-      value: 
-      objectReference: {fileID: 1183559761}
-    - target: {fileID: 8042246237014000704, guid: 3faa5b4b953171d4ea5b912150ef64d0, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 535041329}
     - target: {fileID: 498855640932182641, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 625764391861902142, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_text
+      value: PRESS 'F' KEY
+      objectReference: {fileID: 0}
+    - target: {fileID: 676863749101748960, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1478649471852017994, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
       propertyPath: m_Pivot.x
@@ -303,8 +299,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2469382886937680238, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204135319916762109, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394360364143995406, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933380088289266315, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 454569794213223227, guid: 3faa5b4b953171d4ea5b912150ef64d0, type: 3}
+      propertyPath: BossDefeat_Fade
+      value: 
+      objectReference: {fileID: 430536242}
+    - target: {fileID: 4283691822276522635, guid: 3faa5b4b953171d4ea5b912150ef64d0, type: 3}
+      propertyPath: PlayerObj
+      value: 
+      objectReference: {fileID: 1183559761}
+    - target: {fileID: 8042246237014000704, guid: 3faa5b4b953171d4ea5b912150ef64d0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 535041329}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5400149570109982176, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+    - {fileID: 7910119360032982994, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1478649471852017994, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
       insertIndex: -1
