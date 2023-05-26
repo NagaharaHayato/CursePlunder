@@ -46,6 +46,7 @@ public class CongraturationsText_Script : MonoBehaviour
                 }
                 break;
             case 2:
+                Timer.countdownSecound = 240;
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
                 break;
         }

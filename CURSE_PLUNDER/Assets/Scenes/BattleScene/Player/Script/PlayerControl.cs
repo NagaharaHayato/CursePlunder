@@ -21,6 +21,9 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] public GameObject CyclonObject;
     [SerializeField] public GameObject FreeStyleSword;          //フリースタイルソード（角度指定可
 
+	[SerializeField] AudioClip ShootKnife;
+	
+
 	[SerializeField] private float MOVE_SPEED = 6.0f;  //主人公の移動速度
 	public static float PLAYER_DIR_RAD = 90.0f;         //主人公の向き
 
@@ -207,7 +210,7 @@ public class PlayerControl : MonoBehaviour
 
 	public void KnifeThrow()
 	{
-		for(int i = 0; i < 45; i++) Instantiate(FreeStyleSword, transform.position, Quaternion.Euler(0, 0,i*16));
+		for(int i = 0; i < 15; i++) Instantiate(FreeStyleSword, transform.position, Quaternion.Euler(0, 0,32*i));
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)

@@ -62,7 +62,7 @@ public class UISkill_Selector : MonoBehaviour
             case 0:
                 Skill_NameString = "Diffusion";
                 Skill_Cost = 10;
-                Skill_CT = 1.0f;
+                Skill_CT = 10.0f;
                 break;
 
             //ファイア
