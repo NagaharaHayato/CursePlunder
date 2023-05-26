@@ -47,6 +47,8 @@ public class Slime_Act : MonoBehaviour
     [SerializeField] float HP_per;
     [SerializeField] float ST_per;
 
+    private AudioSource sound02;//効果音
+
     void Awake()
     {
         if (instance == null)
@@ -75,6 +77,7 @@ public class Slime_Act : MonoBehaviour
         
         HPBarRect = HPBar.GetComponent<RectTransform>();
         STBarRect = STBar.GetComponent<RectTransform>();
+        sound02 = GetComponent<AudioSource>();//効果音セット
     }
 
     // Update is called once per frame
@@ -187,13 +190,17 @@ public class Slime_Act : MonoBehaviour
         {
             //ナイフが当たったらHPもしくはSTを減らす
             if (collision.gameObject.tag == "Sword"){
-				Slime_HP--;
+                sound02.PlayOneShot(sound02.clip);
+                Slime_HP--;
 				Slime_ST--;
 			}else if (collision.gameObject.tag == "Fire"){
+                sound02.PlayOneShot(sound02.clip);
                 Slime_HP -= Slime_MaxHP / 5;
             }else if (collision.gameObject.tag == "Cyclon"){
+                sound02.PlayOneShot(sound02.clip);
                 Slime_HP -= Slime_MaxHP / 3;
             }else if (collision.gameObject.tag == "Water"){
+                sound02.PlayOneShot(sound02.clip);
                 Slime_HP--;
             }
            
