@@ -611,6 +611,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 625764391861902142, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_text
+      value: PRESS 'F' KEY
+      objectReference: {fileID: 0}
+    - target: {fileID: 676863749101748960, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1224273669784372462, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
       propertyPath: BossDefeat_Fade
       value: 
@@ -699,8 +707,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2469382886937680238, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204135319916762109, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933380088289266315, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5400149570109982176, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
+    - {fileID: 7910119360032982994, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0157a4b05c17118409ee92232fbe1d00, type: 3}
@@ -718,7 +740,7 @@ GameObject:
   - component: {fileID: 1545189002}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1700,7 +1722,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ddfe2901532d2cd47aaea1f5ad7ce331, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7597cf9bb2589a34ca536f93258d9685, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

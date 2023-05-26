@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
 public class Timer : MonoBehaviour
 {
 
-    //[SerializeField] GameObject DefeatUI;
+    [SerializeField] GameObject DefeatUI;
     //public static float time=10;
     /// <summary>
     /// public static float time=4320;
@@ -19,7 +20,7 @@ public class Timer : MonoBehaviour
 
     public static int countdownMinu = 4;
     //public static int countdownMinu = 1;
-    public static float countdownSecound = countdownMinu * 60;
+    public static float countdownSecound= countdownMinu * 60;
     //　トータル制限時間
     private Text timeText;
 
@@ -28,9 +29,13 @@ public class Timer : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
-    
+    private void Start()
+    {
+        //countdownSecound = countdownMinu * 60;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -60,8 +65,10 @@ public class Timer : MonoBehaviour
         }
         if(countdownSecound<=0)
         {
-                //DefeatUI.SetActive(true);
+               // DefeatUI.SetActive(true);
                 isTimeUp = true;
+            countdownSecound = countdownMinu * 60;
+            SceneManager.LoadScene("Title");
         }
 
 
