@@ -60,8 +60,8 @@ public class UISkill_Selector : MonoBehaviour
             //ナイフの拡散発射
             case 0:
                 Skill_NameString = "Diffusion";
-                Skill_Cost = 10;
-                Skill_CT = 1.0f;
+                Skill_Cost = 100;
+                Skill_CT = 30.0f;
                 break;
 
             //ファイア
