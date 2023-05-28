@@ -10,7 +10,12 @@ public class TitleLoadScene : MonoBehaviour
 
     public InputField inputField;
 
-    public void CheckTextCount()
+	void Awake()
+	{
+        Application.targetFrameRate = 60;
+	}
+
+	public void CheckTextCount()
     {
         Debug.Log(inputField.text.Length);
 
