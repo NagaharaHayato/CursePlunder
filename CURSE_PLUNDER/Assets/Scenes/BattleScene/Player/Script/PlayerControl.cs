@@ -37,8 +37,10 @@ public class PlayerControl : MonoBehaviour
 	public static int ControlMode = 0;
 
 	private static int Damage_Color = 255;
-	
-	void Start()
+
+    private AudioSource sound06;//効果音
+
+    void Start()
 	{
 		//アニメーターの関連付け
 		this.animator = GetComponent<Animator>();
@@ -47,7 +49,8 @@ public class PlayerControl : MonoBehaviour
 
 		float radian = -PLAYER_DIR_RAD * (Mathf.PI / 180);
 		DirectionChange(new Vector2(Mathf.Cos(radian), Mathf.Sin(radian)).normalized);
-	}
+        sound06 = GetComponent<AudioSource>();//効果音セット
+    }
 
 	// Update is called once per frame
 	void Update()
@@ -213,21 +216,25 @@ public class PlayerControl : MonoBehaviour
 	{
 		if (!Invisible && collision.gameObject.CompareTag("Enemy"))
 		{
-			//スライムの攻撃状態を解除
-			Slime_Act.IsAttack = false;
+            sound06.PlayOneShot(sound06.clip);
+            //スライムの攻撃状態を解除
+            Slime_Act.IsAttack = false;
 
 			//ダメージ処理を行う
 			DamageProcess(50);
 
         }
 		else if (collision.gameObject.CompareTag("EnemyFire")){
-			DamageProcess(60);
+            sound06.PlayOneShot(sound06.clip);
+            DamageProcess(60);
         }
 		else if (collision.gameObject.CompareTag("EnemyCyclon")){
-			DamageProcess(40);
+            sound06.PlayOneShot(sound06.clip);
+            DamageProcess(40);
 		}
 		else if (collision.gameObject.CompareTag("EnemyWater")){
-			DamageProcess(70);
+            sound06.PlayOneShot(sound06.clip);
+            DamageProcess(70);
 		}
 	}
 	private void DamageProcess(int DamagePoint){

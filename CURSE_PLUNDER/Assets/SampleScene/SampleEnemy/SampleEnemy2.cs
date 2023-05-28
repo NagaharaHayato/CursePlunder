@@ -58,6 +58,8 @@ public class SampleEnemy2 : MonoBehaviour
     [SerializeField] float HP_per;
     [SerializeField] float ST_per;
 
+    private AudioSource sound04;//効果音
+
     void Awake()
     {
         if (instance == null)
@@ -90,6 +92,8 @@ public class SampleEnemy2 : MonoBehaviour
 
         HPBarRect = HPBar.GetComponent<RectTransform>();
         STBarRect = STBar.GetComponent<RectTransform>();
+
+        sound04 = GetComponent<AudioSource>();//効果音セット
     }
 
     // Update is called once per frame
@@ -207,6 +211,7 @@ public class SampleEnemy2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Sword"))
         {
+            sound04.PlayOneShot(sound04.clip);
             //ナイフが当たったらHPもしくはSTを減らす
             EnemyGob_HP--;
             EnemyGob_ST--;
@@ -224,6 +229,21 @@ public class SampleEnemy2 : MonoBehaviour
                 //  Instantiate(ExpOrb_Obj, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
+        }
+        else if (collision.gameObject.tag == "Fire")
+        {
+            sound04.PlayOneShot(sound04.clip);
+            EnemyGob_HP -= EnemyGob_MaxHP / 5;
+        }
+        else if (collision.gameObject.tag == "Cyclon")
+        {
+            sound04.PlayOneShot(sound04.clip);
+            EnemyGob_HP -= EnemyGob_MaxHP / 3;
+        }
+        else if (collision.gameObject.tag == "Water")
+        {
+            sound04.PlayOneShot(sound04.clip);
+            EnemyGob_HP--;
         }
 
         if (!IsAttack && collision.gameObject.CompareTag("Player"))

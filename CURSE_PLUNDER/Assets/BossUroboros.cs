@@ -91,14 +91,17 @@ public class BossUroboros : MonoBehaviour
         }else{
 			if (collision.gameObject.tag == "Fire")
 			{
+                sound01.PlayOneShot(sound01.clip);
                 BossHP -= 5;
 			}
 			else if (collision.gameObject.tag == "Cyclon")
 			{
+                sound01.PlayOneShot(sound01.clip);
                 BossHP -= 3;
 			}
 			else if (collision.gameObject.tag == "Water")
 			{
+                sound01.PlayOneShot(sound01.clip);
                 BossHP -= 7;
 			}
 		}
