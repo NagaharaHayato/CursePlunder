@@ -45,6 +45,8 @@ public class PlayerStat : MonoBehaviour
         CursePoint  = PlayerPrefs.GetInt("CursePoint");
         CursePoint_String.text = CursePoint.ToString();
 
+        
+
         HP_Percentage = (float)HP / (float)MaxHP;
     }
 

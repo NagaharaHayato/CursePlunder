@@ -12,6 +12,14 @@ public class TitleLoadScene : MonoBehaviour
 
 	void Awake()
 	{
+        //PlayerPrefÇÃê›íË
+        PlayerPrefs.SetString("PlayerName", "");
+        PlayerPrefs.SetInt("HP", 1000);
+        PlayerPrefs.SetInt("MaxHP", 1000);
+        PlayerPrefs.SetInt("Attack", 0);
+        PlayerPrefs.SetInt("Defence", 0);
+        PlayerPrefs.SetInt("CursePoint", 1000);
+
         Application.targetFrameRate = 60;
 	}
 
