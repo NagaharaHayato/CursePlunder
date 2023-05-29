@@ -39,6 +39,7 @@ public class VictoryUI : MonoBehaviour
                 }else if (SceneManager.GetActiveScene().name == "BossFight"){
                     
                 }
+                PlayerControl.ResetCoolTime();
                 UIManager.Stages++;
             }
         }

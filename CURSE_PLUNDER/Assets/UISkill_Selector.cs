@@ -36,7 +36,7 @@ public class UISkill_Selector : MonoBehaviour
         if (SelectPosition < 0) SelectPosition = 4;
         if (SelectPosition > 5) SelectPosition = 0;
 
-        GuardLimit_UI.text = GuardLimit.ToString();
+        GuardLimit_UI.text = PlayerControl.GuardLimit.ToString();
 
         if (SelectPosition == 2) { CountLimit_UI.SetActive(true); } else { CountLimit_UI.SetActive(false); }
         if (GuardLimit == 0) GuardLimit_UI.color = new Color(1.0f, 0.0f, 0.0f);

@@ -30,8 +30,8 @@ public class PlayerControl : MonoBehaviour
 	public static float InvisibleTime      = 0;                     //–³“GŽžŠÔ
 
 	public static float[] CooldownTime = new float[5];
-	public static int GuardLimit = 2;
-	bool[] IsCoolTime = new bool[5];
+	public static int GuardLimit = 3;
+	public static bool[] IsCoolTime = new bool[5];
 
 	public static int ControlMode = 0;
 
@@ -62,7 +62,7 @@ public class PlayerControl : MonoBehaviour
 			if (CooldownTime[i] > 0){
 				CooldownTime[i] -= Time.deltaTime;
             }
-            else{
+            else if (CooldownTime[i]<=0.0f){
 				IsCoolTime[i] = false;
 			}
 		}
@@ -264,4 +264,16 @@ public class PlayerControl : MonoBehaviour
         //ƒRƒXƒg‚ðŽx•¥‚¤
         PlayerStat.CostPay(UISkill_Selector.GetSkillCost());
     }
+
+	public static void ResetCoolTime()
+	{
+		for(int i = 0; i < 5; i++)
+		{
+			IsCoolTime[i] = false;
+			CooldownTime[i] = 0.0f;
+
+		}
+		GuardLimit = 3;
+		Shield_Management.IsShield = false;
+	}
 }

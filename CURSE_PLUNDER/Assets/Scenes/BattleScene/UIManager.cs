@@ -37,6 +37,8 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         //‚·‚×‚Ä‚Ì“G‚ğŸr–Å‚µ‚½‚çŸ—˜‰æ–Ê‚ğ•\¦‚·‚é
         if ((GameObject.FindGameObjectsWithTag("Enemy").Length) <= 0)
         {

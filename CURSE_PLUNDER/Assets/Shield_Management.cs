@@ -16,6 +16,8 @@ public class Shield_Management : MonoBehaviour
     public static int   Shield_MaxHP        = 0;          //シールドの最大耐久値
     public static int   Shield_LV           = 0;          //シールドのレベル
 
+    public float Shield_LimitTime = 0.0f;
+
     void Start()
     {
 
@@ -23,7 +25,7 @@ public class Shield_Management : MonoBehaviour
         Shield_LV = PlayerPrefs.GetInt("Shield_Lv");
 
         //シールドの耐久値設定
-        Shield_MaxHP = 500 * Shield_LV;
+        Shield_MaxHP = 500 * (Shield_LV+1);
 
         
     }
@@ -33,6 +35,17 @@ public class Shield_Management : MonoBehaviour
     {
         Shield_HPobj.SetActive(IsShield);
         cCollider.enabled = IsShield;
+
+        if (IsShield)
+        {
+            Shield_LimitTime += Time.deltaTime;
+            if (Shield_LimitTime > 20.0f)
+            {
+                IsShield = false;
+                Shield_LimitTime = 0.0f;
+				Shield_HPobj.SetActive(false);
+			}
+        }
     }
 
     public static void Awake_Shield(){
